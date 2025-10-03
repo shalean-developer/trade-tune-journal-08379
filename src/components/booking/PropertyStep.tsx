@@ -91,14 +91,12 @@ export function PropertyStep({ bookingId, onNext, onBack }: PropertyStepProps) {
         region_id: selectedRegion,
         suburb_id: selectedSuburb,
         address: address.trim(),
-        contact_phone: contactPhone.trim(),
-        contact_email: contactEmail.trim(),
         notes: notes.trim() || null
       });
 
       // Upsert booking items (bedrooms & bathrooms)
       await Promise.all([
-        upsertBookingItem(bookingId, 'bedroom', bedrooms, 0), // Price set to 0, can be configured
+        upsertBookingItem(bookingId, 'bedroom', bedrooms, 0),
         upsertBookingItem(bookingId, 'bathroom', bathrooms, 0)
       ]);
 
