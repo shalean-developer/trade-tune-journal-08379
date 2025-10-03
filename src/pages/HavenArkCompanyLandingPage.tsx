@@ -200,8 +200,16 @@ const HavenArkCompanyLandingPage = () => {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
+                    <NavigationMenuLink 
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+                      onClick={() => navigate('/masterclass')}
+                    >
+                      Home
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-foreground hover:text-primary">
-                      Programs
+                      Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="grid gap-3 p-6 w-[400px] lg:w-[500px]">
@@ -247,17 +255,9 @@ const HavenArkCompanyLandingPage = () => {
                   <NavigationMenuItem>
                     <NavigationMenuLink 
                       className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/masterclass')}
-                    >
-                      Masterclass
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
                       onClick={() => navigate('/academy')}
                     >
-                      Academy
+                      How It Works
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
@@ -274,7 +274,7 @@ const HavenArkCompanyLandingPage = () => {
                           alt="Wiggly Logo" 
                           className="w-5 h-5 object-contain"
                         />
-                        <span>Wiggly</span>
+                        <span>Contact</span>
                       </div>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -292,7 +292,27 @@ const HavenArkCompanyLandingPage = () => {
                     <h2 className="text-lg font-semibold text-foreground">Navigation</h2>
                     
                     <div className="space-y-3">
-                      <h3 className="text-sm font-medium text-muted-foreground">Programs</h3>
+                      <button 
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        onClick={() => {
+                          navigate('/masterclass');
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+                            <Award className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Home</div>
+                            <div className="text-xs text-muted-foreground">Back to home</div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="text-sm font-medium text-muted-foreground">Services</h3>
                       
                       <button 
                         className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
@@ -335,24 +355,6 @@ const HavenArkCompanyLandingPage = () => {
                       <button 
                         className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/masterclass');
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
-                            <Award className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Masterclass</div>
-                            <div className="text-xs text-muted-foreground">Premium programs</div>
-                          </div>
-                        </div>
-                      </button>
-
-                      <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
-                        onClick={() => {
                           navigate('/academy');
                           setMobileMenuOpen(false);
                         }}
@@ -362,8 +364,8 @@ const HavenArkCompanyLandingPage = () => {
                             <GraduationCap className="h-4 w-4" />
                           </div>
                           <div>
-                            <div className="font-medium text-sm">Academy</div>
-                            <div className="text-xs text-muted-foreground">Trading courses</div>
+                            <div className="font-medium text-sm">How It Works</div>
+                            <div className="text-xs text-muted-foreground">Learn about our process</div>
                           </div>
                         </div>
                       </button>
@@ -387,8 +389,8 @@ const HavenArkCompanyLandingPage = () => {
                             />
                           </div>
                           <div>
-                            <div className="font-medium text-sm">Wiggly AI</div>
-                            <div className="text-xs text-muted-foreground">AI trading tools</div>
+                            <div className="font-medium text-sm">Contact</div>
+                            <div className="text-xs text-muted-foreground">Get in touch</div>
                           </div>
                         </div>
                       </button>
@@ -412,7 +414,7 @@ const HavenArkCompanyLandingPage = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 size={isMobile ? "sm" : "default"}
               >
-                {isMobile ? "Start" : "Get Started"}
+                Book Now
               </Button>
             </div>
           </div>
