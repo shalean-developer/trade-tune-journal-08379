@@ -64,6 +64,11 @@ const TradeEntryPage = lazy(() => import('@/pages/features/TradeEntryPage'));
 const FeaturePlaybooksPage = lazy(() => import('@/pages/features/PlaybooksPage'));
 const SmartTradeImportPage = lazy(() => import('@/pages/features/SmartTradeImportPage'));
 
+// Lazy load booking pages
+const ServicesPage = lazy(() => import('@/pages/booking/ServicesPage'));
+const BookingFlowPage = lazy(() => import('@/pages/booking/BookingFlowPage'));
+const CheckoutPage = lazy(() => import('@/pages/booking/CheckoutPage'));
+
 function App() {
   const queryClient = new QueryClient();
   
@@ -113,6 +118,11 @@ function App() {
                 <Route path="/features/trade-entry" element={<TradeEntryPage />} />
                 <Route path="/features/playbooks" element={<FeaturePlaybooksPage />} />
                 <Route path="/features/smart-trade-import" element={<SmartTradeImportPage />} />
+
+                {/* Booking system routes - accessible to all users */}
+                <Route path="/booking/services" element={<ServicesPage />} />
+                <Route path="/booking/service/:serviceSlug" element={<BookingFlowPage />} />
+                <Route path="/booking/checkout/:bookingId" element={<CheckoutPage />} />
 
                 {/* Academy routes */}
                 <Route path="/academy" element={
