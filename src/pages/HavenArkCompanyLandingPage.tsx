@@ -38,90 +38,90 @@ const HavenArkCompanyLandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stats = [
-    { label: "Active Students", value: "5,000+", icon: Users },
-    { label: "Success Rate", value: "87%", icon: Award },
-    { label: "Expert Mentors", value: "50+", icon: Target },
-    { label: "Course Hours", value: "1000+", icon: BookOpen }
+    { label: "Happy Customers", value: "2,000+", icon: Users },
+    { label: "Satisfaction Rate", value: "98%", icon: Award },
+    { label: "Professional Cleaners", value: "50+", icon: Target },
+    { label: "Hours Cleaned", value: "10,000+", icon: BookOpen }
   ];
 
   const features = [
     {
-      icon: GraduationCap,
-      title: "Expert-Led Programs",
-      description: "Learn from industry professionals with decades of trading experience",
+      icon: Users,
+      title: "Expert Cleaners",
+      description: "Background-checked, trained professionals committed to excellence",
       color: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
     },
     {
-      icon: Brain,
-      title: "AI-Powered Analytics",
-      description: "Leverage cutting-edge AI technology to enhance your trading decisions",
+      icon: Sparkles,
+      title: "Flexible Scheduling",
+      description: "Book same-day or in advance with easy online scheduling",
       color: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30"
     },
     {
       icon: Shield,
-      title: "Risk Management",
-      description: "Master the art of protecting capital and managing trading risks",
+      title: "Transparent Pricing",
+      description: "Clear quotes with no hidden fees, ever",
       color: "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30"
     },
     {
-      icon: BarChart3,
-      title: "Real Market Insights",
-      description: "Get educational market analysis and pattern recognition training",
+      icon: Zap,
+      title: "Secure Payments",
+      description: "Paystack checkout with email receipts for your peace of mind",
       color: "text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30"
     }
   ];
 
   const offerings = [
     {
-      title: "Masterclass Programs",
-      description: "Comprehensive trading education programs available both online and offline",
+      title: "Standard Cleaning",
+      description: "Regular home cleaning to maintain your space fresh and tidy",
       image: "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png",
-      link: "/masterclass",
+      link: "/booking/services",
       badge: "Popular"
     },
     {
-      title: "Trading Academy",
-      description: "Self-paced courses and learning materials for all skill levels",
+      title: "Deep Cleaning",
+      description: "Thorough deep clean for every corner of your home or office",
       image: "/lovable-uploads/23b54970-8e48-42a5-95c9-78c42fe65e6d.png",
-      link: "/academy",
-      badge: "New"
+      link: "/booking/services",
+      badge: "Recommended"
     },
     {
-      title: "Wiggly AI Platform",
-      description: "Advanced AI-powered trading analytics and journaling tools",
+      title: "Airbnb Turnover",
+      description: "Fast, professional cleaning between guests for hosts",
       image: "/lovable-uploads/2780255e-6d53-44a4-8fcf-7fa8a4a25bc1.png",
-      link: "/wiggly",
-      badge: "AI-Powered"
+      link: "/booking/services",
+      badge: "Same-Day"
     }
   ];
 
   const mentors = [
     {
-      name: "Ritvik Vipin",
-      role: "Chief Trading Strategist",
-      experience: "15+ Years",
-      specialization: "Options & Derivatives",
+      name: "Cleaner Profile 1",
+      role: "Deep Cleaning Specialist",
+      experience: "5+ Years",
+      specialization: "Deep Cleaning & Airbnb Turnovers",
       image: "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png",
       linkedin: "#",
-      achievements: ["Former Investment Banker", "Trained 10,000+ Traders", "Published Author"]
+      achievements: ["Certified Professional", "500+ Happy Clients", "Airbnb Superhost Approved"]
     },
     {
-      name: "Akash Jayan",
-      role: "Technical Analysis Expert",
-      experience: "12+ Years",
-      specialization: "Chart Patterns & Market Psychology",
+      name: "Cleaner Profile 2",
+      role: "Office Cleaning Expert",
+      experience: "7+ Years",
+      specialization: "Office Cleaning & Move-In/Out Services",
       image: "/lovable-uploads/5ff49b53-f922-45bb-8a00-6ae902ecf012.png",
       linkedin: "#",
-      achievements: ["CMT Certified", "Ex-Hedge Fund Analyst", "Market Research Pioneer"]
+      achievements: ["Background Checked", "Corporate Trained", "Eco-Friendly Certified"]
     },
     {
-      name: "Christophal Rafael",
-      role: "Risk Management Specialist",
-      experience: "18+ Years",
-      specialization: "Portfolio Management & Risk Analytics",
+      name: "Cleaner Profile 3",
+      role: "Residential Care Specialist",
+      experience: "6+ Years",
+      specialization: "Trusted by families for reliable home care",
       image: "/lovable-uploads/86f360ff-2b03-4cb9-9bff-e07a55844eed.png",
       linkedin: "#",
-      achievements: ["CFA Charter Holder", "Risk Management Expert", "Financial Educator"]
+      achievements: ["Trusted by Families", "Detail-Oriented", "Flexible Scheduling"]
     }
   ];
 
@@ -161,23 +161,23 @@ const HavenArkCompanyLandingPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Helmet>
-        <title>Haven Ark - Transform Your Trading Journey</title>
-        <meta name="description" content="Haven Ark is India's premier trading education platform. Master trading with expert-led programs, AI-powered tools, and comprehensive learning resources." />
-        <meta name="keywords" content="trading education, stock market courses, trading academy, AI trading tools, market analysis, trading mentorship" />
-        <link rel="canonical" href="https://havenark.com/" />
+        <title>Shalean Cleaning Services — Book Trusted Cleaners in Cape Town</title>
+        <meta name="description" content="Cape Town home & office cleaning. Standard, Deep, Move-In/Out, Airbnb & Post-Construction services. Easy booking, vetted cleaners, secure payments." />
+        <meta name="keywords" content="Cape Town cleaning, professional cleaners, Airbnb cleaning, deep cleaning, office cleaning, home cleaning services" />
+        <link rel="canonical" href="https://shalean.com/" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://havenark.com/" />
-        <meta property="og:title" content="Haven Ark - Transform Your Trading Journey" />
-        <meta property="og:description" content="India's premier trading education platform with expert-led programs and AI-powered tools" />
+        <meta property="og:url" content="https://shalean.com/" />
+        <meta property="og:title" content="Shalean Cleaning Services — Book Trusted Cleaners in Cape Town" />
+        <meta property="og:description" content="Professional cleaning services in Cape Town with vetted cleaners and secure online booking" />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            "name": "Haven Ark",
-            "description": "Premier trading education platform",
-            "url": "https://havenark.com"
+            "@type": "LocalBusiness",
+            "name": "Shalean Cleaning Services",
+            "description": "Professional cleaning services in Cape Town",
+            "url": "https://shalean.com"
           })}
         </script>
       </Helmet>
@@ -192,8 +192,8 @@ const HavenArkCompanyLandingPage = () => {
         <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold text-primary`}>Haven Ark</h1>
-              <Badge variant="secondary" className="hidden sm:flex">Trading Education</Badge>
+              <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold text-primary`}>Shalean</h1>
+              <Badge variant="secondary" className="hidden sm:flex">Cleaning Services</Badge>
             </div>
             
             {!isMobile ? (
@@ -431,30 +431,30 @@ const HavenArkCompanyLandingPage = () => {
           >
             <Badge className="mb-4" variant="secondary">
               <Sparkles className="w-3 h-3 mr-1" />
-              India's Premier Trading Education Platform
+              Cape Town's Trusted Cleaning Service
             </Badge>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent px-4">
-              Transform Your Trading Journey
+              Transform Your Home & Office Cleaning Experience
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-              Master the art of trading with expert-led programs, AI-powered analytics, and comprehensive learning resources designed for success
+              Book trusted cleaners in Cape Town. Standard, Deep, Move-In/Out, Airbnb & more — vetted professionals, transparent pricing, and secure online booking.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 size="lg" 
-                onClick={() => navigate('/masterclass')}
+                onClick={() => navigate('/booking/services')}
                 className="w-full sm:w-auto group"
               >
-                Explore Masterclass
+                Book a Cleaner
                 <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/academy')}
+                onClick={() => navigate('/booking/services#quote')}
                 className="w-full sm:w-auto"
               >
-                Browse Academy
+                Get a Free Quote
               </Button>
             </div>
           </motion.div>
@@ -490,22 +490,22 @@ const HavenArkCompanyLandingPage = () => {
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <Badge className="mb-4">
-                  <Award className="w-3 h-3 mr-1" />
-                  Flagship Program
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  Our Services
                 </Badge>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                  Experience Our Masterclass Programs
+                  Experience Our Cleaning Services
                 </h2>
                 <p className="text-muted-foreground mb-8 text-lg">
-                  Immersive learning experiences designed to transform beginners into confident traders through comprehensive curriculum and hands-on practice.
+                  Choose from a wide range of professional cleaning services tailored to your needs.
                 </p>
                 
                 <div className="space-y-4 mb-8">
                   {[
-                    { title: "Live Trading Sessions", desc: "Watch experts analyze real-time markets" },
-                    { title: "Personalized Mentorship", desc: "One-on-one guidance from seasoned traders" },
-                    { title: "Practical Strategies", desc: "Battle-tested techniques that actually work" },
-                    { title: "Lifetime Access", desc: "Continuous learning and community support" }
+                    { title: "Standard Cleaning", desc: "Regular maintenance for homes and offices" },
+                    { title: "Deep Cleaning", desc: "Thorough cleaning for every corner" },
+                    { title: "Move-In / Move-Out", desc: "Complete cleaning for property transitions" },
+                    { title: "Airbnb Turnover", desc: "Fast turnaround between guests" }
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -528,10 +528,10 @@ const HavenArkCompanyLandingPage = () => {
 
                 <Button 
                   size="lg" 
-                  onClick={() => navigate('/masterclass')}
+                  onClick={() => navigate('/booking/services')}
                   className="group"
                 >
-                  Explore Masterclass Programs
+                  View All Services
                   <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
@@ -546,7 +546,7 @@ const HavenArkCompanyLandingPage = () => {
                 <Card className="overflow-hidden shadow-2xl">
                   <img 
                     src="/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
-                    alt="Masterclass Learning Experience"
+                    alt="Professional Cleaning Service"
                     className="w-full h-auto"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
@@ -560,8 +560,8 @@ const HavenArkCompanyLandingPage = () => {
                         ))}
                       </div>
                       <div>
-                        <p className="text-sm font-semibold">5,000+ Students</p>
-                        <p className="text-xs text-muted-foreground">Join our growing community</p>
+                        <p className="text-sm font-semibold">2,000+ Customers</p>
+                        <p className="text-xs text-muted-foreground">Join our happy community</p>
                       </div>
                     </div>
                   </div>
@@ -569,12 +569,12 @@ const HavenArkCompanyLandingPage = () => {
                 
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <Card className="p-4 bg-background/80 backdrop-blur">
-                    <div className="text-2xl font-bold text-primary mb-1">100+</div>
-                    <div className="text-sm text-muted-foreground">Hours of Content</div>
+                    <div className="text-2xl font-bold text-primary mb-1">98%</div>
+                    <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
                   </Card>
                   <Card className="p-4 bg-background/80 backdrop-blur">
-                    <div className="text-2xl font-bold text-primary mb-1">24/7</div>
-                    <div className="text-sm text-muted-foreground">Community Support</div>
+                    <div className="text-2xl font-bold text-primary mb-1">Same Day</div>
+                    <div className="text-sm text-muted-foreground">Booking Available</div>
                   </Card>
                 </div>
               </motion.div>
@@ -593,10 +593,10 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <Badge className="mb-4">Why Choose Haven Ark</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Everything You Need to Succeed</h2>
+            <Badge className="mb-4">Why Choose Shalean</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Everything You Need for a Sparkling Clean</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-              From beginner to advanced, we provide comprehensive education and tools for every stage of your trading journey
+              From homes to offices, we provide reliable cleaning solutions for every space
             </p>
           </motion.div>
 
@@ -634,10 +634,10 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <Badge className="mb-4">Our Offerings</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Choose Your Learning Path</h2>
+            <Badge className="mb-4">Our Services</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Book Your Cleaning Service</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-              Explore our comprehensive range of trading education programs and tools
+              Easy online booking for all service types
             </p>
           </motion.div>
 
@@ -690,10 +690,10 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <Badge className="mb-4">Meet Our Experts</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Learn From Industry Leaders</h2>
+            <Badge className="mb-4">Our Team</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Meet Our Trusted Cleaners</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-              Our mentors bring decades of real-world trading experience and have successfully trained thousands of traders
+              Our professional team is vetted, trained, and committed to your satisfaction
             </p>
           </motion.div>
 
@@ -761,10 +761,10 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <Badge className="mb-4">Media Coverage</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Featured In Leading Publications</h2>
+            <Badge className="mb-4">Customer Reviews</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Loved by Customers Across Cape Town</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-              Our innovative approach to trading education has been recognized by top business and financial media
+              See what our satisfied customers are saying about our cleaning services
             </p>
           </motion.div>
 
@@ -807,9 +807,9 @@ const HavenArkCompanyLandingPage = () => {
                 <Quote className="w-8 h-8 text-primary flex-shrink-0" />
                 <div>
                   <p className="text-lg italic mb-4">
-                    "Haven Ark is revolutionizing trading education in India by combining expert mentorship with cutting-edge technology. Their holistic approach addresses both the technical and psychological aspects of trading."
+                    "Shalean made booking a cleaner so simple. My home has never looked this spotless!"
                   </p>
-                  <p className="font-semibold">- Financial Express</p>
+                  <p className="font-semibold">- Customer Review</p>
                 </div>
               </div>
             </Card>
@@ -827,28 +827,28 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <Zap className="w-16 h-16 mx-auto mb-6 text-primary" />
+            <Sparkles className="w-16 h-16 mx-auto mb-6 text-primary" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Ready to Start Your Trading Journey?
+              Ready to Book Your Cleaner?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join thousands of successful traders who have transformed their trading with Haven Ark
+              Join thousands of happy customers across Cape Town who trust Shalean for spotless cleaning
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                onClick={() => navigate('/haven-ark/signup')}
+                onClick={() => navigate('/booking/services')}
                 className="w-full sm:w-auto"
               >
-                Create Free Account
+                Book Now
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/masterclass')}
+                onClick={() => navigate('/booking/services#quote')}
                 className="w-full sm:w-auto"
               >
-                View All Programs
+                Get a Free Quote
               </Button>
             </div>
           </motion.div>
