@@ -140,6 +140,7 @@ const HavenArkCompanyLandingPage = () => {
     }
   ];
 
+  // Review/testimonial icons for customer reviews section
   const reviewIcons = [
     { icon: Star, name: "5-Star Reviews" },
     { icon: MessageCircle, name: "Customer Testimonials" },
