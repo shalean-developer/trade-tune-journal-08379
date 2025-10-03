@@ -54,10 +54,10 @@ const ContactPage = () => {
                       For general inquiries, support requests, or any questions about our services:
                     </p>
                     <a 
-                      href="mailto:support@wiggly.co.in" 
+                      href="mailto:support@shalean.com" 
                       className="text-primary hover:underline font-medium"
                     >
-                      support@wiggly.co.in
+                      support@shalean.com
                     </a>
                   </div>
                 </div>
@@ -122,8 +122,8 @@ const ContactPage = () => {
               <p className="text-foreground/80">
                 We value your feedback! If you have suggestions on how we can improve our platform
                 or any features you'd like to see in future updates, please let us know at{" "}
-                <a href="mailto:support@wiggly.co.in" className="text-primary hover:underline">
-                  support@wiggly.co.in
+                <a href="mailto:support@shalean.com" className="text-primary hover:underline">
+                  support@shalean.com
                 </a>
               </p>
             </section>

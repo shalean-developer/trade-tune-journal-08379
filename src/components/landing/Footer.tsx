@@ -90,7 +90,7 @@ const Footer = () => {
                 <Instagram className={`${isMobile ? 'h-3.5 w-3.5' : 'h-5 w-5'} text-primary group-hover:scale-110 transition-transform`} />
               </a>
               <a 
-                href="mailto:support@wiggly.co.in" 
+                href="mailto:support@shalean.com" 
                 className={`group flex items-center justify-center ${isMobile ? 'p-2' : 'p-3'} rounded-full bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary/30 hover:to-primary/20 transition-all duration-300 backdrop-blur-sm`}
                 aria-label="Email"
               >

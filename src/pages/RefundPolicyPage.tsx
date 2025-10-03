@@ -48,7 +48,7 @@ const RefundPolicyPage = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">2. Refund Policy</h2>
               <p className="text-foreground/80">
-                We offer a 14-day money-back guarantee for all new subscriptions. If you are not satisfied with our services within the first 14 days of your subscription, you can request a full refund by contacting our support team at support@wiggly.co.in.
+                We offer a 14-day money-back guarantee for all new subscriptions. If you are not satisfied with our services within the first 14 days of your subscription, you can request a full refund by contacting our support team at support@shalean.com.
               </p>
               <p className="text-foreground/80 mt-4">
                 After the 14-day period, refunds are generally not provided for the following reasons:
@@ -95,7 +95,7 @@ const RefundPolicyPage = () => {
             <section className="mb-4">
               <h2 className="text-2xl font-semibold mb-4">5. Contact Information</h2>
               <p className="text-foreground/80">
-                If you have any questions about our Cancellation and Refund Policy, please contact our customer support team at support@wiggly.co.in.
+                If you have any questions about our Cancellation and Refund Policy, please contact our customer support team at support@shalean.com.
               </p>
             </section>
           </motion.div>

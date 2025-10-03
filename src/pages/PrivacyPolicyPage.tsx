@@ -139,7 +139,7 @@ const PrivacyPolicyPage = () => {
             <section className="mb-4">
               <h2 className="text-2xl font-semibold mb-4">10. Contact Information</h2>
               <p className="text-foreground/80">
-                If you have any questions about this Privacy Policy, please contact us at support@wiggly.co.in.
+                If you have any questions about this Privacy Policy, please contact us at support@shalean.com.
               </p>
             </section>
           </motion.div>
