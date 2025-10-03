@@ -191,6 +191,8 @@ export const upsertBookingItem = async (
   quantity: number,
   unitPrice: number
 ) => {
+  const lineTotal = quantity * unitPrice;
+  
   const { data, error } = await supabase
     .from('booking_items')
     .upsert({
@@ -198,7 +200,7 @@ export const upsertBookingItem = async (
       item_type: itemType,
       qty: quantity,
       unit_price: unitPrice,
-      line_total: quantity * unitPrice,
+      line_total: lineTotal,
       service_item_id: null
     }, { onConflict: 'booking_id,item_type' })
     .select()
@@ -225,6 +227,8 @@ export const upsertBookingExtra = async (
   quantity: number,
   unitPrice: number
 ) => {
+  const lineTotal = quantity * unitPrice;
+  
   const { data, error} = await supabase
     .from('booking_extras')
     .upsert({
@@ -232,8 +236,8 @@ export const upsertBookingExtra = async (
       service_extra_id: extraId,
       qty: quantity,
       unit_price: unitPrice,
-      line_total: quantity * unitPrice
-    } as any, { onConflict: 'booking_id,service_extra_id' })
+      line_total: lineTotal
+    }, { onConflict: 'booking_id,service_extra_id' })
     .select()
     .single();
 
