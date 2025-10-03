@@ -435,7 +435,7 @@ const HavenArkCompanyLandingPage = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/booking/services#quote')}
+                onClick={() => navigate('/booking/quote')}
                 className="w-full sm:w-auto"
               >
                 Get a Free Quote
@@ -829,7 +829,7 @@ const HavenArkCompanyLandingPage = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/booking/services#quote')}
+                onClick={() => navigate('/booking/quote')}
                 className="w-full sm:w-auto"
               >
                 Get a Free Quote

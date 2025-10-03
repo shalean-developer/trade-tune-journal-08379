@@ -15,6 +15,7 @@ const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
 
 // Lazy load booking pages
 const ServicesPage = lazy(() => import('@/pages/booking/ServicesPage'));
+const QuotePage = lazy(() => import('@/pages/booking/QuotePage'));
 const BookingFlowPage = lazy(() => import('@/pages/booking/BookingFlowPage'));
 const CheckoutPage = lazy(() => import('@/pages/booking/CheckoutPage'));
 
@@ -49,6 +50,7 @@ function App() {
 
               {/* Booking system routes - accessible to all users */}
               <Route path="/booking/services" element={<ServicesPage />} />
+              <Route path="/booking/quote" element={<QuotePage />} />
               <Route path="/booking/service/:serviceSlug" element={<BookingFlowPage />} />
               <Route path="/booking/checkout/:bookingId" element={<CheckoutPage />} />
               
