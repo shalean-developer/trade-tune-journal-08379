@@ -618,6 +618,7 @@ export type Database = {
           customer_email: string
           customer_name: string
           customer_phone: string
+          extras: Json | null
           id: string
           message: string | null
           service_type: string
@@ -632,6 +633,7 @@ export type Database = {
           customer_email: string
           customer_name: string
           customer_phone: string
+          extras?: Json | null
           id?: string
           message?: string | null
           service_type: string
@@ -646,6 +648,7 @@ export type Database = {
           customer_email?: string
           customer_name?: string
           customer_phone?: string
+          extras?: Json | null
           id?: string
           message?: string | null
           service_type?: string

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { ArrowLeft, Send, CheckCircle2 } from 'lucide-react';
@@ -22,10 +23,20 @@ const serviceTypes = [
   { value: 'other', label: 'Other / Not Sure' },
 ];
 
+const availableExtras = [
+  { id: 'oven-cleaning', name: 'Oven Cleaning', price: 150, description: 'Deep cleaning of oven interior and exterior' },
+  { id: 'fridge-cleaning', name: 'Fridge Cleaning', price: 100, description: 'Interior and exterior fridge cleaning' },
+  { id: 'window-cleaning', name: 'Window Cleaning', price: 200, description: 'Interior and exterior window cleaning' },
+  { id: 'carpet-cleaning', name: 'Carpet Cleaning', price: 300, description: 'Deep carpet cleaning per room' },
+  { id: 'laundry-service', name: 'Laundry Service', price: 150, description: 'Washing, drying, and folding service' },
+  { id: 'ironing-service', name: 'Ironing Service', price: 100, description: 'Professional ironing service' },
+];
+
 export default function QuotePage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedExtras, setSelectedExtras] = useState<Set<string>>(new Set());
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,6 +47,22 @@ export default function QuotePage() {
     bathrooms: '',
     message: '',
   });
+
+  const toggleExtra = (extraId: string) => {
+    const newSelected = new Set(selectedExtras);
+    if (newSelected.has(extraId)) {
+      newSelected.delete(extraId);
+    } else {
+      newSelected.add(extraId);
+    }
+    setSelectedExtras(newSelected);
+  };
+
+  const calculateExtrasTotal = () => {
+    return availableExtras
+      .filter(extra => selectedExtras.has(extra.id))
+      .reduce((sum, extra) => sum + extra.price, 0);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,6 +75,15 @@ export default function QuotePage() {
 
     setLoading(true);
     try {
+      // Prepare extras data
+      const extrasData = availableExtras
+        .filter(extra => selectedExtras.has(extra.id))
+        .map(extra => ({
+          id: extra.id,
+          name: extra.name,
+          price: extra.price,
+        }));
+
       // Insert quote request into database
       const { error } = await supabase
         .from('quote_requests')
@@ -60,6 +96,7 @@ export default function QuotePage() {
           bedrooms: formData.bedrooms ? parseInt(formData.bedrooms) : null,
           bathrooms: formData.bathrooms ? parseInt(formData.bathrooms) : null,
           message: formData.message || null,
+          extras: extrasData,
           status: 'pending',
         });
 
@@ -268,6 +305,57 @@ export default function QuotePage() {
                           onChange={(e) => handleChange('bathrooms', e.target.value)}
                         />
                       </div>
+                    </div>
+
+                    {/* Extras Section */}
+                    <div className="space-y-4 pt-4 border-t">
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Add Extras (Optional)</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Select additional services to enhance your cleaning
+                        </p>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        {availableExtras.map((extra) => (
+                          <div
+                            key={extra.id}
+                            className="flex items-start gap-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                            onClick={() => toggleExtra(extra.id)}
+                          >
+                            <Checkbox
+                              id={extra.id}
+                              checked={selectedExtras.has(extra.id)}
+                              onCheckedChange={() => toggleExtra(extra.id)}
+                            />
+                            <div className="flex-1">
+                              <Label
+                                htmlFor={extra.id}
+                                className="font-medium cursor-pointer"
+                              >
+                                {extra.name}
+                              </Label>
+                              <p className="text-sm text-muted-foreground">
+                                {extra.description}
+                              </p>
+                            </div>
+                            <span className="font-semibold text-primary">
+                              +R{extra.price}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {selectedExtras.size > 0 && (
+                        <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                          <div className="flex justify-between items-center">
+                            <span className="font-medium">Extras Total:</span>
+                            <span className="text-lg font-bold text-primary">
+                              R{calculateExtrasTotal()}
+                            </span>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {/* Additional Information */}
