@@ -443,6 +443,7 @@ export type Database = {
         Row: {
           content: string | null
           created_at: string | null
+          description: string | null
           duration_minutes: number | null
           id: string
           module_id: string | null
@@ -454,6 +455,7 @@ export type Database = {
         Insert: {
           content?: string | null
           created_at?: string | null
+          description?: string | null
           duration_minutes?: number | null
           id?: string
           module_id?: string | null
@@ -465,6 +467,7 @@ export type Database = {
         Update: {
           content?: string | null
           created_at?: string | null
+          description?: string | null
           duration_minutes?: number | null
           id?: string
           module_id?: string | null
@@ -808,11 +811,14 @@ export type Database = {
           date: string
           emotion: string | null
           entry_price: number | null
+          execution_rating: number | null
           exit_price: number | null
           id: string
+          management_rating: number | null
           notes: string | null
           pnl: number
           quantity: number | null
+          setup_rating: number | null
           symbol: string
           trade_type: string | null
           updated_at: string | null
@@ -823,11 +829,14 @@ export type Database = {
           date: string
           emotion?: string | null
           entry_price?: number | null
+          execution_rating?: number | null
           exit_price?: number | null
           id?: string
+          management_rating?: number | null
           notes?: string | null
           pnl: number
           quantity?: number | null
+          setup_rating?: number | null
           symbol: string
           trade_type?: string | null
           updated_at?: string | null
@@ -838,11 +847,14 @@ export type Database = {
           date?: string
           emotion?: string | null
           entry_price?: number | null
+          execution_rating?: number | null
           exit_price?: number | null
           id?: string
+          management_rating?: number | null
           notes?: string | null
           pnl?: number
           quantity?: number | null
+          setup_rating?: number | null
           symbol?: string
           trade_type?: string | null
           updated_at?: string | null
@@ -967,16 +979,23 @@ export type Database = {
           date: string
           emotion: string | null
           entry_price: number | null
+          execution_rating: number | null
           exit_price: number | null
           id: string
+          management_rating: number | null
           notes: string | null
           pnl: number
           quantity: number | null
+          setup_rating: number | null
           symbol: string
           trade_type: string | null
           updated_at: string | null
           user_id: string | null
         }[]
+      }
+      has_admin_access: {
+        Args: { _user_id: string }
+        Returns: boolean
       }
       has_free_access: {
         Args: { _user_id: string }
