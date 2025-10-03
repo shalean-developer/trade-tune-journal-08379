@@ -173,9 +173,12 @@ export type Database = {
         Row: {
           address: string | null
           cleaner_id: string | null
+          contact_email: string | null
+          contact_phone: string | null
           created_at: string
           customer_id: string
           end_ts: string | null
+          estimated_minutes: number | null
           id: string
           notes: string | null
           payment_ref: string | null
@@ -191,9 +194,12 @@ export type Database = {
         Insert: {
           address?: string | null
           cleaner_id?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
           created_at?: string
           customer_id: string
           end_ts?: string | null
+          estimated_minutes?: number | null
           id?: string
           notes?: string | null
           payment_ref?: string | null
@@ -209,9 +215,12 @@ export type Database = {
         Update: {
           address?: string | null
           cleaner_id?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
           created_at?: string
           customer_id?: string
           end_ts?: string | null
+          estimated_minutes?: number | null
           id?: string
           notes?: string | null
           payment_ref?: string | null
@@ -961,6 +970,13 @@ export type Database = {
           user_role: Database["public"]["Enums"]["app_role"]
         }
         Returns: undefined
+      }
+      calculate_booking_totals: {
+        Args: { p_booking_id: string }
+        Returns: {
+          estimated_minutes: number
+          total_price: number
+        }[]
       }
       create_profile_for_user: {
         Args: { user_email: string; user_name: string }
