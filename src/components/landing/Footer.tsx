@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link, useLocation } from 'react-router-dom';
+import shaleanLogo from '@/assets/shalean-logo.png';
 
 // Helper function to determine if current context is Wiggly platform
 const isWigglyContext = (pathname: string): boolean => {
@@ -20,11 +21,6 @@ const Footer = () => {
   const [mounted, setMounted] = useState(false);
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
-
-  // Define logo URLs for light and dark modes
-  const lightLogoUrl = "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png";
-  const darkLogoUrl = "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png";
-  const logoUrl = mounted && resolvedTheme === 'dark' ? darkLogoUrl : lightLogoUrl;
   
   useEffect(() => {
     setMounted(true);
@@ -57,15 +53,11 @@ const Footer = () => {
             className="space-y-2 sm:space-y-4 flex flex-col items-center md:items-start"
           >
             <Link to={getLogoDestination()} className="flex items-center">
-              {mounted ? (
-                <img 
-                  src={logoUrl} 
-                  alt="Shalean Logo" 
-                  className={`${isMobile ? 'h-8' : 'h-12'} object-contain`} 
-                />
-              ) : (
-                <div className={`${isMobile ? 'h-8 w-28' : 'h-12 w-36'} bg-primary/10 animate-pulse rounded-md`}></div>
-              )}
+              <img 
+                src={shaleanLogo} 
+                alt="Shalean Cleaning Services Logo" 
+                className={`${isMobile ? 'h-8' : 'h-12'} object-contain`} 
+              />
             </Link>
             
             <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-muted-foreground max-w-md text-center md:text-left`}>

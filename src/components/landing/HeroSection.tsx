@@ -10,6 +10,7 @@ import { useTheme } from 'next-themes';
 import { useIsMobile, useIsXSmall } from '@/hooks/use-mobile';
 import PerformanceChart from './PerformanceChart';
 import WinRateDonutChart from './WinRateDonutChart';
+import shaleanLogo from '@/assets/shalean-logo.png';
 
 const chartData = [
   { date: '01 Apr', value: 25000 },
@@ -48,14 +49,11 @@ const HeroSection = () => {
             className="flex flex-col items-center lg:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6"
           >
             <div className={`${isMobile ? 'w-12 h-12' : 'w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'} relative`}>
-              {mounted && <img 
-                src={resolvedTheme === 'dark' ? 
-                  "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png" : 
-                  "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
-                } 
-                alt="Shalean Logo" 
+              <img 
+                src={shaleanLogo} 
+                alt="Shalean Cleaning Services Logo" 
                 className="w-full h-full object-contain" 
-              />}
+              />
             </div>
             <span className={`inline-flex items-center rounded-full bg-primary/10 ${isMobile ? 'px-2 py-1 text-xs' : 'px-2 sm:px-3 py-1 text-xs sm:text-sm'} font-medium text-primary backdrop-blur-sm`}>
               <TrendingUp className={`${isMobile ? 'mr-1 h-3 w-3' : 'mr-1 h-3 w-3 sm:h-4 sm:w-4'}`} />
