@@ -197,7 +197,7 @@ const HavenArkCompanyLandingPage = () => {
                 alt="Shalean Logo" 
                 className={`${isMobile ? 'h-8' : 'h-10'} w-auto object-contain`}
               />
-              <Badge variant="secondary" className="hidden sm:flex">Cleaning Services</Badge>
+              
             </div>
             
             {!isMobile ? (
@@ -269,17 +269,7 @@ const HavenArkCompanyLandingPage = () => {
                       className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
                       onClick={() => navigate('/wiggly')}
                     >
-                      <div className="flex items-center space-x-2">
-                        <img 
-                          src={resolvedTheme === 'dark' ? 
-                            "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
-                            "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
-                          } 
-                          alt="Wiggly Logo" 
-                          className="w-5 h-5 object-contain"
-                        />
-                        <span>Contact</span>
-                      </div>
+                      <span>Contact</span>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 </NavigationMenuList>
@@ -381,21 +371,9 @@ const HavenArkCompanyLandingPage = () => {
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
-                            <img 
-                              src={resolvedTheme === 'dark' ? 
-                                "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
-                                "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
-                              } 
-                              alt="Wiggly Logo" 
-                              className="w-4 h-4 object-contain"
-                            />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Contact</div>
-                            <div className="text-xs text-muted-foreground">Get in touch</div>
-                          </div>
+                        <div>
+                          <div className="font-medium text-sm">Contact</div>
+                          <div className="text-xs text-muted-foreground">Get in touch</div>
                         </div>
                       </button>
                     </div>
