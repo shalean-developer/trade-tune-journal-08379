@@ -22,7 +22,7 @@ export function BookingSummary({ bookingId, service, currentStep }: BookingSumma
     if (bookingId) {
       loadBookingData();
     }
-  }, [bookingId]);
+  }, [bookingId, currentStep]);
 
   const loadBookingData = async () => {
     if (!bookingId) return;
@@ -92,16 +92,16 @@ export function BookingSummary({ bookingId, service, currentStep }: BookingSumma
           <>
             <Separator />
             <div className="space-y-2">
-              {bedrooms && (
+              {bedrooms && bedrooms.qty > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span>{bedrooms.quantity} Bedroom{bedrooms.quantity > 1 ? 's' : ''}</span>
-                  <span>R {(bedrooms.quantity * bedrooms.unit_price).toFixed(2)}</span>
+                  <span>{bedrooms.qty} Bedroom{bedrooms.qty > 1 ? 's' : ''}</span>
+                  <span className="text-muted-foreground">Included</span>
                 </div>
               )}
-              {bathrooms && (
+              {bathrooms && bathrooms.qty > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span>{bathrooms.quantity} Bathroom{bathrooms.quantity > 1 ? 's' : ''}</span>
-                  <span>R {(bathrooms.quantity * bathrooms.unit_price).toFixed(2)}</span>
+                  <span>{bathrooms.qty} Bathroom{bathrooms.qty > 1 ? 's' : ''}</span>
+                  <span className="text-muted-foreground">Included</span>
                 </div>
               )}
             </div>

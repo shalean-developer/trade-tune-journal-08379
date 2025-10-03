@@ -39,6 +39,8 @@ export interface Booking {
   start_ts: string | null;
   end_ts: string | null;
   address: string | null;
+  contact_phone: string | null;
+  contact_email: string | null;
   notes: string | null;
   total_price: number;
   cleaner_id: string | null;
@@ -46,6 +48,7 @@ export interface Booking {
   payment_status: string | null;
   created_at: string;
   updated_at: string;
+  estimated_minutes: number;
 }
 
 // Fetch all active services

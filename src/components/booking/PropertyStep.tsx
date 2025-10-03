@@ -86,11 +86,13 @@ export function PropertyStep({ bookingId, onNext, onBack }: PropertyStepProps) {
 
     setLoading(true);
     try {
-      // Update booking details
+      // Update booking details including contact information
       await updateBooking(bookingId, {
         region_id: selectedRegion,
         suburb_id: selectedSuburb,
         address: address.trim(),
+        contact_phone: contactPhone.trim(),
+        contact_email: contactEmail.trim(),
         notes: notes.trim() || null
       });
 
