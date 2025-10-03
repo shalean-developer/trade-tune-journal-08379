@@ -75,21 +75,21 @@ const HavenArkCompanyLandingPage = () => {
     {
       title: "Standard Cleaning",
       description: "Regular home cleaning to maintain your space fresh and tidy",
-      image: "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png",
+      image: "/lovable-uploads/standard-cleaning.png",
       link: "/booking/services",
       badge: "Popular"
     },
     {
       title: "Deep Cleaning",
       description: "Thorough deep clean for every corner of your home or office",
-      image: "/lovable-uploads/23b54970-8e48-42a5-95c9-78c42fe65e6d.png",
+      image: "/lovable-uploads/deep-cleaning.png",
       link: "/booking/services",
       badge: "Recommended"
     },
     {
       title: "Airbnb Turnover",
       description: "Fast, professional cleaning between guests for hosts",
-      image: "/lovable-uploads/2780255e-6d53-44a4-8fcf-7fa8a4a25bc1.png",
+      image: "/lovable-uploads/airbnb-turnover.png",
       link: "/booking/services",
       badge: "Same-Day"
     }
@@ -101,7 +101,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Deep Cleaning Specialist",
       experience: "5+ Years",
       specialization: "Deep Cleaning & Airbnb Turnovers",
-      image: "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png",
+      image: "/lovable-uploads/cleaner-profile-1.png",
       linkedin: "#",
       achievements: ["Certified Professional", "500+ Happy Clients", "Airbnb Superhost Approved"]
     },
@@ -110,7 +110,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Office Cleaning Expert",
       experience: "7+ Years",
       specialization: "Office Cleaning & Move-In/Out Services",
-      image: "/lovable-uploads/5ff49b53-f922-45bb-8a00-6ae902ecf012.png",
+      image: "/lovable-uploads/cleaner-profile-2.png",
       linkedin: "#",
       achievements: ["Background Checked", "Corporate Trained", "Eco-Friendly Certified"]
     },
@@ -119,7 +119,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Residential Care Specialist",
       experience: "6+ Years",
       specialization: "Trusted by families for reliable home care",
-      image: "/lovable-uploads/86f360ff-2b03-4cb9-9bff-e07a55844eed.png",
+      image: "/lovable-uploads/cleaner-profile-3.png",
       linkedin: "#",
       achievements: ["Trusted by Families", "Detail-Oriented", "Flexible Scheduling"]
     }
@@ -127,34 +127,34 @@ const HavenArkCompanyLandingPage = () => {
 
   const newsOutlets = [
     {
-      name: "Economic Times",
-      logo: "/lovable-uploads/990e60b1-9a6f-45a0-b5e6-9bb5109d373a.png",
-      feature: "Best Trading Education Platform 2024"
+      name: "Customer Review 1",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Excellent service, very thorough"
     },
     {
-      name: "Business Standard",
-      logo: "/lovable-uploads/7af97329-5f82-41a6-af28-113f7711536c.png",
-      feature: "Innovation in Financial Education"
+      name: "Customer Review 2",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Professional and reliable cleaners"
     },
     {
-      name: "Forbes India",
-      logo: "/lovable-uploads/9ea240e5-b9e3-4cda-a9f3-829b0695c636.png",
-      feature: "Top EdTech Startup to Watch"
+      name: "Customer Review 3",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Best cleaning service in Cape Town"
     },
     {
-      name: "The Hindu Business Line",
-      logo: "/lovable-uploads/cd0c7104-628a-41b5-86e5-f28f244ceaf2.png",
-      feature: "Transforming Trading Education"
+      name: "Customer Review 4",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Amazing attention to detail"
     },
     {
-      name: "Mint",
-      logo: "/lovable-uploads/dacda39a-48ba-4f33-813b-c570e9686ae3.png",
-      feature: "Leading Financial Learning Platform"
+      name: "Customer Review 5",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Spotless results every time"
     },
     {
-      name: "YourStory",
-      logo: "/lovable-uploads/cee9ac58-3a60-4703-840f-425403c6488c.png",
-      feature: "Empowering Retail Traders"
+      name: "Customer Review 6",
+      logo: "/lovable-uploads/review-icon.png",
+      feature: "Highly recommend their services"
     }
   ];
 
@@ -192,7 +192,11 @@ const HavenArkCompanyLandingPage = () => {
         <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold text-primary`}>Shalean</h1>
+              <img 
+                src="/shalean-logo.png" 
+                alt="Shalean Logo" 
+                className={`${isMobile ? 'h-8' : 'h-10'} w-auto object-contain`}
+              />
               <Badge variant="secondary" className="hidden sm:flex">Cleaning Services</Badge>
             </div>
             
@@ -547,7 +551,7 @@ const HavenArkCompanyLandingPage = () => {
               >
                 <Card className="overflow-hidden shadow-2xl">
                   <img 
-                    src="/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
+                    src="/lovable-uploads/cleaner-working.png"
                     alt="Professional Cleaning Service"
                     className="w-full h-auto"
                   />
