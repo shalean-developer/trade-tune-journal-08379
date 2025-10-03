@@ -9,6 +9,11 @@ import { Toaster as SonnerToaster } from 'sonner';
 // Import landing page
 const HavenArkCompanyLandingPage = lazy(() => import('@/pages/HavenArkCompanyLandingPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
+const ContactPage = lazy(() => import('@/pages/ContactPage'));
+const MasterclassPage = lazy(() => import('@/pages/MasterclassPage'));
+const OfflineProgramPage = lazy(() => import('@/pages/OfflineProgramPage'));
+const OnlineProgramPage = lazy(() => import('@/pages/OnlineProgramPage'));
+const AcademyPage = lazy(() => import('@/pages/AcademyPage'));
 
 // Haven Ark auth
 const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
@@ -41,6 +46,13 @@ function App() {
               
               {/* Haven Ark auth routes */}
               <Route path="/haven-ark/signup" element={<HavenArkSignupPage />} />
+              
+              {/* Info pages */}
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/masterclass" element={<MasterclassPage />} />
+              <Route path="/offline-program" element={<OfflineProgramPage />} />
+              <Route path="/online-program" element={<OnlineProgramPage />} />
+              <Route path="/academy" element={<AcademyPage />} />
               
               {/* Feature showcase pages - accessible to all users */}
               <Route path="/features/emotions" element={<EmotionsPage />} />

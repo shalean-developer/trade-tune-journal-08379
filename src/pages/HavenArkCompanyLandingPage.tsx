@@ -206,7 +206,7 @@ const HavenArkCompanyLandingPage = () => {
                   <NavigationMenuItem>
                     <NavigationMenuLink 
                       className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/masterclass')}
+                      onClick={() => navigate('/')}
                     >
                       Home
                     </NavigationMenuLink>
@@ -267,7 +267,7 @@ const HavenArkCompanyLandingPage = () => {
                   <NavigationMenuItem>
                     <NavigationMenuLink 
                       className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/wiggly')}
+                      onClick={() => navigate('/contact')}
                     >
                       <span>Contact</span>
                     </NavigationMenuLink>
@@ -289,7 +289,7 @@ const HavenArkCompanyLandingPage = () => {
                       <button 
                         className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/masterclass');
+                          navigate('/');
                           setMobileMenuOpen(false);
                         }}
                       >
@@ -367,7 +367,7 @@ const HavenArkCompanyLandingPage = () => {
                       <button 
                         className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/wiggly');
+                          navigate('/contact');
                           setMobileMenuOpen(false);
                         }}
                       >
