@@ -417,26 +417,21 @@ export default function QuotePage() {
                             className="flex items-start gap-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                           >
                             <Checkbox
-                              id={extra.id}
+                              id={`extra-${extra.id}`}
                               checked={selectedExtras.has(extra.id)}
                               onCheckedChange={(checked) => {
+                                const newSelected = new Set(selectedExtras);
                                 if (checked) {
-                                  setSelectedExtras(prev => new Set([...prev, extra.id]));
+                                  newSelected.add(extra.id);
                                 } else {
-                                  setSelectedExtras(prev => {
-                                    const newSet = new Set(prev);
-                                    newSet.delete(extra.id);
-                                    return newSet;
-                                  });
+                                  newSelected.delete(extra.id);
                                 }
+                                setSelectedExtras(newSelected);
                               }}
                             />
-                            <div className="flex-1 cursor-pointer" onClick={() => {
-                              const checkbox = document.getElementById(extra.id) as HTMLButtonElement;
-                              checkbox?.click();
-                            }}>
+                            <div className="flex-1">
                               <Label
-                                htmlFor={extra.id}
+                                htmlFor={`extra-${extra.id}`}
                                 className="font-medium cursor-pointer"
                               >
                                 {extra.name}
