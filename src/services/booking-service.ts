@@ -203,11 +203,10 @@ export const upsertBookingItem = async (
       line_total: lineTotal,
       service_item_id: null
     }, { onConflict: 'booking_id,item_type' })
-    .select()
-    .single();
+    .select();
 
   if (error) throw error;
-  return data;
+  return data?.[0] || null;
 };
 
 export const getBookingItems = async (bookingId: string) => {
@@ -238,11 +237,10 @@ export const upsertBookingExtra = async (
       unit_price: unitPrice,
       line_total: lineTotal
     }, { onConflict: 'booking_id,service_extra_id' })
-    .select()
-    .single();
+    .select();
 
   if (error) throw error;
-  return data;
+  return data?.[0] || null;
 };
 
 export const deleteBookingExtra = async (bookingId: string, extraId: string) => {
