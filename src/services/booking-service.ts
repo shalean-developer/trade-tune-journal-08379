@@ -198,8 +198,9 @@ export const upsertBookingItem = async (
       item_type: itemType,
       qty: quantity,
       unit_price: unitPrice,
-      line_total: quantity * unitPrice
-    } as any, { onConflict: 'booking_id,item_type' })
+      line_total: quantity * unitPrice,
+      service_item_id: null
+    }, { onConflict: 'booking_id,item_type' })
     .select()
     .single();
 
