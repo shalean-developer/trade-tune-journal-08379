@@ -170,95 +170,161 @@ export default function QuotePage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Get a Free Quote | Shalean Cleaning Services</title>
-        <meta name="description" content="Request a free quote for professional cleaning services in South Africa. Quick response within 24 hours." />
+        <title>Free Cleaning Quote South Africa | Shalean Services</title>
+        <meta name="description" content="Get a free cleaning quote in South Africa. Professional home & Airbnb cleaning services. 24-hour response time. Book deep cleaning, move-in/out & more." />
+        <meta name="keywords" content="cleaning quote South Africa, free cleaning estimate, professional cleaning services, home cleaning quote, Airbnb cleaning quote" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={`${window.location.origin}/booking/quote`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/booking/quote`} />
+        <meta property="og:title" content="Free Cleaning Quote South Africa | Shalean Services" />
+        <meta property="og:description" content="Get a free cleaning quote in South Africa. Professional home & Airbnb cleaning services. 24-hour response time." />
+        <meta property="og:image" content={`${window.location.origin}/shalean-logo.png`} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={`${window.location.origin}/booking/quote`} />
+        <meta name="twitter:title" content="Free Cleaning Quote South Africa | Shalean Services" />
+        <meta name="twitter:description" content="Get a free cleaning quote in South Africa. Professional home & Airbnb cleaning services. 24-hour response time." />
+        <meta name="twitter:image" content={`${window.location.origin}/shalean-logo.png`} />
+        
+        {/* Structured Data - Service Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Free Cleaning Quote",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Shalean Cleaning Services",
+              "image": `${window.location.origin}/shalean-logo.png`,
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "ZA"
+              }
+            },
+            "serviceType": "Cleaning Services",
+            "areaServed": {
+              "@type": "Country",
+              "name": "South Africa"
+            },
+            "description": "Request a free quote for professional cleaning services including standard cleaning, deep cleaning, Airbnb cleaning, and move-in/out cleaning in South Africa.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "ZAR",
+              "description": "Free quote with 24-hour response time"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Header */}
-      <nav className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 py-4">
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <nav className="container mx-auto px-4 py-4" aria-label="Main navigation">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/')}>
-              <img src="/shalean-logo.png" alt="Shalean Logo" className="h-10 w-auto object-contain" />
+              <img 
+                src="/shalean-logo.png" 
+                alt="Shalean Cleaning Services - Professional Cleaning in South Africa" 
+                className="h-10 w-auto object-contain"
+                width="120"
+                height="40"
+              />
             </div>
-            <Button variant="ghost" onClick={() => navigate('/booking/services')}>
+            <Button variant="ghost" onClick={() => navigate('/booking/services')} aria-label="Return to services page">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Quote Form */}
-      <section className="py-12 sm:py-16">
+      <main className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <motion.div
+          <article className="max-w-2xl mx-auto">
+            <motion.header
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center mb-8"
             >
-              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Get a Free Quote</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Get a Free Cleaning Quote in South Africa</h1>
               <p className="text-lg text-muted-foreground">
-                Fill out the form below and we'll get back to you within 24 hours with a customized quote
+                Fill out the form below and we will get back to you within 24 hours with a customized quote for your cleaning needs
               </p>
-            </motion.div>
+            </motion.header>
 
-            <motion.div
+            <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
+              aria-labelledby="quote-form-title"
             >
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact Information</CardTitle>
+                  <CardTitle id="quote-form-title">Contact Information</CardTitle>
                   <CardDescription>Tell us about your cleaning needs</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" aria-label="Quote request form">
                     {/* Personal Information */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <legend className="sr-only">Personal Information</legend>
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name *</Label>
                         <Input
                           id="name"
+                          name="name"
                           placeholder="John Doe"
                           value={formData.name}
                           onChange={(e) => handleChange('name', e.target.value)}
                           required
+                          aria-required="true"
                         />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number *</Label>
                         <Input
                           id="phone"
+                          name="phone"
                           type="tel"
                           placeholder="+27 123 456 789"
                           value={formData.phone}
                           onChange={(e) => handleChange('phone', e.target.value)}
                           required
+                          aria-required="true"
                         />
                       </div>
-                    </div>
+                    </fieldset>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => handleChange('email', e.target.value)}
                         required
+                        aria-required="true"
                       />
                     </div>
 
                     {/* Service Type */}
                     <div className="space-y-2">
                       <Label htmlFor="serviceType">Service Type *</Label>
-                      <Select value={formData.serviceType} onValueChange={(value) => handleChange('serviceType', value)}>
-                        <SelectTrigger>
+                      <Select 
+                        value={formData.serviceType} 
+                        onValueChange={(value) => handleChange('serviceType', value)}
+                        required
+                      >
+                        <SelectTrigger id="serviceType" aria-required="true">
                           <SelectValue placeholder="Select a service type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -272,49 +338,57 @@ export default function QuotePage() {
                     </div>
 
                     {/* Property Details */}
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Property Address (Optional)</Label>
-                      <Input
-                        id="address"
-                        placeholder="123 Main Street, Cape Town"
-                        value={formData.address}
-                        onChange={(e) => handleChange('address', e.target.value)}
-                      />
-                    </div>
+                    <fieldset className="space-y-4">
+                      <legend className="sr-only">Property Details</legend>
+                      <div className="space-y-2">
+                        <Label htmlFor="address">Property Address (Optional)</Label>
+                        <Input
+                          id="address"
+                          name="address"
+                          placeholder="123 Main Street, Cape Town"
+                          value={formData.address}
+                          onChange={(e) => handleChange('address', e.target.value)}
+                        />
+                      </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="bedrooms">Bedrooms</Label>
-                        <Input
-                          id="bedrooms"
-                          type="number"
-                          min="0"
-                          placeholder="2"
-                          value={formData.bedrooms}
-                          onChange={(e) => handleChange('bedrooms', e.target.value)}
-                        />
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="bedrooms">Bedrooms</Label>
+                          <Input
+                            id="bedrooms"
+                            name="bedrooms"
+                            type="number"
+                            min="0"
+                            placeholder="2"
+                            value={formData.bedrooms}
+                            onChange={(e) => handleChange('bedrooms', e.target.value)}
+                            aria-label="Number of bedrooms"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="bathrooms">Bathrooms</Label>
+                          <Input
+                            id="bathrooms"
+                            name="bathrooms"
+                            type="number"
+                            min="0"
+                            placeholder="1"
+                            value={formData.bathrooms}
+                            onChange={(e) => handleChange('bathrooms', e.target.value)}
+                            aria-label="Number of bathrooms"
+                          />
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="bathrooms">Bathrooms</Label>
-                        <Input
-                          id="bathrooms"
-                          type="number"
-                          min="0"
-                          placeholder="1"
-                          value={formData.bathrooms}
-                          onChange={(e) => handleChange('bathrooms', e.target.value)}
-                        />
-                      </div>
-                    </div>
+                    </fieldset>
 
                     {/* Extras Section */}
-                    <div className="space-y-4 pt-4 border-t">
-                      <div>
-                        <h3 className="font-semibold text-lg mb-2">Add Extras (Optional)</h3>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Select additional services to enhance your cleaning
-                        </p>
-                      </div>
+                    <fieldset className="space-y-4 pt-4 border-t">
+                      <legend>
+                        <h2 className="font-semibold text-lg mb-2">Add Extras (Optional)</h2>
+                      </legend>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Select additional services to enhance your cleaning
+                      </p>
                       
                       <div className="space-y-3">
                         {availableExtras.map((extra) => (
@@ -356,17 +430,19 @@ export default function QuotePage() {
                           </div>
                         </div>
                       )}
-                    </div>
+                    </fieldset>
 
                     {/* Additional Information */}
                     <div className="space-y-2">
                       <Label htmlFor="message">Additional Information (Optional)</Label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="Tell us more about your cleaning needs, special requirements, or preferred schedule..."
                         rows={4}
                         value={formData.message}
                         onChange={(e) => handleChange('message', e.target.value)}
+                        aria-label="Additional cleaning requirements"
                       />
                     </div>
 
@@ -376,12 +452,13 @@ export default function QuotePage() {
                       className="w-full"
                       size="lg"
                       disabled={loading}
+                      aria-label="Submit quote request"
                     >
                       {loading ? (
                         <>Processing...</>
                       ) : (
                         <>
-                          <Send className="mr-2 h-4 w-4" />
+                          <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                           Submit Quote Request
                         </>
                       )}
@@ -393,10 +470,10 @@ export default function QuotePage() {
                   </form>
                 </CardContent>
               </Card>
-            </motion.div>
-          </div>
+            </motion.section>
+          </article>
         </div>
-      </section>
+      </main>
 
       <Footer />
     </div>
