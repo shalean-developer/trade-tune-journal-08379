@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/use-auth';
 import { supabase } from '@/integrations/supabase/client';
 import { getCurrentUserRoles } from '@/utils/roles-cache';
-import { getUserAssignedCourses } from '@/services/academy-service';
 
 const SmartRedirect: React.FC = () => {
   const { user, isLoading } = useAuth();
@@ -46,36 +45,9 @@ const SmartRedirect: React.FC = () => {
           hasSubscription
         });
 
-        // Simplified routing logic
-        if (hasWigglyOnlyRole) {
-          console.log('SmartRedirect: Wiggly-only user detected, redirecting to dashboard');
-          setRedirectPath('/dashboard');
-        } else if (isAcademyOnly) {
-          console.log('SmartRedirect: Academy user detected, checking for assigned courses...');
-          
-          try {
-            const assignedCourses = await getUserAssignedCourses();
-            console.log('SmartRedirect: Assigned courses check result:', assignedCourses.length);
-            
-            if (assignedCourses.length > 0) {
-              console.log('SmartRedirect: Academy user has assigned courses, redirecting to my-courses');
-              setRedirectPath('/academy/my-courses');
-            } else {
-              console.log('SmartRedirect: Academy user has no assigned courses, redirecting to academy');
-              setRedirectPath('/academy');
-            }
-          } catch (courseError) {
-            console.error('SmartRedirect: Error checking assigned courses:', courseError);
-            // Default to academy page if there's an error
-            setRedirectPath('/academy');
-          }
-        } else if (isAdmin || hasSubscription) {
-          console.log('SmartRedirect: Redirecting to dashboard (admin or subscription user)');
-          setRedirectPath('/dashboard');
-        } else {
-          console.log('SmartRedirect: No specific access, redirecting to dashboard');
-          setRedirectPath('/dashboard');
-        }
+        // Simplified routing logic - just redirect to dashboard
+        console.log('SmartRedirect: Redirecting to dashboard');
+        setRedirectPath('/dashboard');
 
         setChecking(false);
       } catch (error) {
