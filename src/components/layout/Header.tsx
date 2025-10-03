@@ -301,12 +301,6 @@ const Header: React.FC = () => {
             )}
           </div>
           
-          <h1 
-            className={`text-lg sm:text-xl hidden md:block ${pageTitleProps.className}`}
-            style={pageTitleProps.style}
-          >
-            {pageTitle}
-          </h1>
           
           {/* Academy Interface Switching Button - Moved to left side */}
           {userRolesLoaded && !isAcademyOnly && (

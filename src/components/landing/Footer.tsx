@@ -21,10 +21,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const isMobile = useIsMobile();
 
-  // Define logo URLs for light and dark modes
-  const lightLogoUrl = "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png";
-  const darkLogoUrl = "/lovable-uploads/dacda39a-48ba-4f33-813b-c570e9686ae3.png";
-  const logoUrl = mounted && resolvedTheme === 'dark' ? darkLogoUrl : lightLogoUrl;
+  // Define logo URL - Shalean Logo
+  const logoUrl = "/shalean-logo.png";
   
   useEffect(() => {
     setMounted(true);
@@ -60,7 +58,7 @@ const Footer = () => {
               {mounted ? (
                 <img 
                   src={logoUrl} 
-                  alt="Wiggly Logo" 
+                  alt="Shalean Cleaning Services Logo" 
                   className={`${isMobile ? 'h-8' : 'h-12'} object-contain`} 
                 />
               ) : (
@@ -69,7 +67,7 @@ const Footer = () => {
             </Link>
             
             <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-muted-foreground max-w-md text-center md:text-left`}>
-              AI-powered trading journal and analytics platform helping traders make data-driven decisions.
+              Professional cleaning services for homes and businesses. We deliver sparkling results with eco-friendly solutions and expert care.
             </p>
           </motion.div>
           
@@ -187,7 +185,7 @@ const Footer = () => {
           viewport={{ once: true }}
           className={`${isMobile ? 'mt-6 pt-3' : 'mt-8 pt-6'} border-t border-border/10 text-center ${isMobile ? 'text-xs' : 'text-sm'} text-muted-foreground`}
         >
-          <p>© {currentYear} Wiggly. All rights reserved.</p>
+          <p>© {currentYear} Shalean Cleaning Services. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

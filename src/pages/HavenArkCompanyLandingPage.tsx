@@ -640,10 +640,10 @@ const HavenArkCompanyLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12"
           >
-            <Badge className="mb-4">Our Services</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Book Your Cleaning Service</h2>
+            <Badge className="mb-4">Our Blog</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Cleaning Tips & Insights</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-              Easy online booking for all service types
+              Expert advice and helpful resources for maintaining a spotless space
             </p>
           </motion.div>
 
