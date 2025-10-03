@@ -891,30 +891,119 @@ export type Database = {
       user_roles: {
         Row: {
           created_at: string | null
+          expires_at: string | null
           id: string
-          role_id: string
-          user_id: string | null
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
         }
         Insert: {
           created_at?: string | null
+          expires_at?: string | null
           id?: string
-          role_id: string
-          user_id?: string | null
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
         }
         Update: {
           created_at?: string | null
+          expires_at?: string | null
           id?: string
-          role_id?: string
-          user_id?: string | null
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "user_roles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      add_role_to_user: {
+        Args: {
+          target_user_id: string
+          user_role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: undefined
+      }
+      create_profile_for_user: {
+        Args: { user_email: string; user_name: string }
+        Returns: string
+      }
+      get_all_playbooks_for_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          content: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          title: string
+          updated_at: string | null
+          user_id: string
+        }[]
+      }
+      get_all_profiles_for_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+        }[]
+      }
+      get_all_trades_for_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          created_at: string | null
+          date: string
+          emotion: string | null
+          entry_price: number | null
+          exit_price: number | null
+          id: string
+          notes: string | null
+          pnl: number
+          quantity: number | null
+          symbol: string
+          trade_type: string | null
+          updated_at: string | null
+          user_id: string | null
+        }[]
+      }
+      has_free_access: {
+        Args: { _user_id: string }
+        Returns: boolean
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin_secure: {
+        Args: { _user_id: string }
+        Returns: boolean
+      }
+      merge_duplicate_accounts: {
+        Args: { duplicate_user_id: string; primary_user_id: string }
+        Returns: undefined
+      }
+      remove_role_from_user: {
+        Args: {
+          target_user_id: string
+          user_role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user" | "student" | "instructor"
