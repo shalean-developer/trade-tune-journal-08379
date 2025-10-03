@@ -14,6 +14,7 @@ const MasterclassPage = lazy(() => import('@/pages/MasterclassPage'));
 const OfflineProgramPage = lazy(() => import('@/pages/OfflineProgramPage'));
 const OnlineProgramPage = lazy(() => import('@/pages/OnlineProgramPage'));
 const AcademyPage = lazy(() => import('@/pages/AcademyPage'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
 
 // Haven Ark auth
 const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
@@ -49,6 +50,7 @@ function App() {
               
               {/* Info pages */}
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/blog" element={<BlogPage />} />
               <Route path="/masterclass" element={<MasterclassPage />} />
               <Route path="/offline-program" element={<OfflineProgramPage />} />
               <Route path="/online-program" element={<OnlineProgramPage />} />

@@ -176,6 +176,21 @@ const Footer = () => {
               Contact Us
             </Link>
           </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block"
+          >
+            <Link 
+              to="/blog" 
+              className={`${isMobile ? 'text-xs' : 'text-sm'} text-muted-foreground hover:text-primary transition-colors cursor-pointer relative z-10 hover:underline`}
+            >
+              Blog
+            </Link>
+          </motion.div>
         </div>
         
         <motion.div
