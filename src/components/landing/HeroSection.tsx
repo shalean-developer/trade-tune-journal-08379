@@ -50,10 +50,10 @@ const HeroSection = () => {
             <div className={`${isMobile ? 'w-12 h-12' : 'w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'} relative`}>
               {mounted && <img 
                 src={resolvedTheme === 'dark' ? 
-                  "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
-                  "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
+                  "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png" : 
+                  "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
                 } 
-                alt="Wiggly Logo" 
+                alt="Shalean Logo" 
                 className="w-full h-full object-contain" 
               />}
             </div>

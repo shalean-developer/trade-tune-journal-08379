@@ -27,9 +27,24 @@ import {
   Brain,
   Linkedin,
   Star,
-  Quote
+  Quote,
+  UserCheck,
+  Calendar,
+  CheckSquare,
+  Lock,
+  MessageCircle,
+  Smile,
+  ThumbsUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import cleaningActionImage from '@/assets/cleaning-action-mopping.jpg';
+import standardCleaningImage from '@/assets/standard-cleaning-service.jpg';
+import deepCleaningImage from '@/assets/deep-cleaning-service.jpg';
+import airbnbTurnoverImage from '@/assets/airbnb-turnover-service.jpg';
+import cleanerPortrait1 from '@/assets/cleaner-portrait-1.jpg';
+import cleanerPortrait2 from '@/assets/cleaner-portrait-2.jpg';
+import cleanerPortrait3 from '@/assets/cleaner-portrait-3.jpg';
+import cleanHomeInterior from '@/assets/clean-home-interior.jpg';
 
 const HavenArkCompanyLandingPage = () => {
   const isMobile = useIsMobile();
@@ -46,25 +61,25 @@ const HavenArkCompanyLandingPage = () => {
 
   const features = [
     {
-      icon: Users,
+      icon: UserCheck,
       title: "Expert Cleaners",
       description: "Background-checked, trained professionals committed to excellence",
       color: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
     },
     {
-      icon: Sparkles,
+      icon: Calendar,
       title: "Flexible Scheduling",
       description: "Book same-day or in advance with easy online scheduling",
       color: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30"
     },
     {
-      icon: Shield,
+      icon: CheckSquare,
       title: "Transparent Pricing",
       description: "Clear quotes with no hidden fees, ever",
       color: "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30"
     },
     {
-      icon: Zap,
+      icon: Lock,
       title: "Secure Payments",
       description: "Paystack checkout with email receipts for your peace of mind",
       color: "text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30"
@@ -75,21 +90,21 @@ const HavenArkCompanyLandingPage = () => {
     {
       title: "Standard Cleaning",
       description: "Regular home cleaning to maintain your space fresh and tidy",
-      image: "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png",
+      image: standardCleaningImage,
       link: "/booking/services",
       badge: "Popular"
     },
     {
       title: "Deep Cleaning",
       description: "Thorough deep clean for every corner of your home or office",
-      image: "/lovable-uploads/23b54970-8e48-42a5-95c9-78c42fe65e6d.png",
+      image: deepCleaningImage,
       link: "/booking/services",
       badge: "Recommended"
     },
     {
       title: "Airbnb Turnover",
       description: "Fast, professional cleaning between guests for hosts",
-      image: "/lovable-uploads/2780255e-6d53-44a4-8fcf-7fa8a4a25bc1.png",
+      image: airbnbTurnoverImage,
       link: "/booking/services",
       badge: "Same-Day"
     }
@@ -101,7 +116,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Deep Cleaning Specialist",
       experience: "5+ Years",
       specialization: "Deep Cleaning & Airbnb Turnovers",
-      image: "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png",
+      image: cleanerPortrait1,
       linkedin: "#",
       achievements: ["Certified Professional", "500+ Happy Clients", "Airbnb Superhost Approved"]
     },
@@ -110,7 +125,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Office Cleaning Expert",
       experience: "7+ Years",
       specialization: "Office Cleaning & Move-In/Out Services",
-      image: "/lovable-uploads/5ff49b53-f922-45bb-8a00-6ae902ecf012.png",
+      image: cleanerPortrait2,
       linkedin: "#",
       achievements: ["Background Checked", "Corporate Trained", "Eco-Friendly Certified"]
     },
@@ -119,43 +134,19 @@ const HavenArkCompanyLandingPage = () => {
       role: "Residential Care Specialist",
       experience: "6+ Years",
       specialization: "Trusted by families for reliable home care",
-      image: "/lovable-uploads/86f360ff-2b03-4cb9-9bff-e07a55844eed.png",
+      image: cleanerPortrait3,
       linkedin: "#",
       achievements: ["Trusted by Families", "Detail-Oriented", "Flexible Scheduling"]
     }
   ];
 
-  const newsOutlets = [
-    {
-      name: "Economic Times",
-      logo: "/lovable-uploads/990e60b1-9a6f-45a0-b5e6-9bb5109d373a.png",
-      feature: "Best Trading Education Platform 2024"
-    },
-    {
-      name: "Business Standard",
-      logo: "/lovable-uploads/7af97329-5f82-41a6-af28-113f7711536c.png",
-      feature: "Innovation in Financial Education"
-    },
-    {
-      name: "Forbes India",
-      logo: "/lovable-uploads/9ea240e5-b9e3-4cda-a9f3-829b0695c636.png",
-      feature: "Top EdTech Startup to Watch"
-    },
-    {
-      name: "The Hindu Business Line",
-      logo: "/lovable-uploads/cd0c7104-628a-41b5-86e5-f28f244ceaf2.png",
-      feature: "Transforming Trading Education"
-    },
-    {
-      name: "Mint",
-      logo: "/lovable-uploads/dacda39a-48ba-4f33-813b-c570e9686ae3.png",
-      feature: "Leading Financial Learning Platform"
-    },
-    {
-      name: "YourStory",
-      logo: "/lovable-uploads/cee9ac58-3a60-4703-840f-425403c6488c.png",
-      feature: "Empowering Retail Traders"
-    }
+  const reviewIcons = [
+    { icon: Star, name: "5-Star Reviews" },
+    { icon: MessageCircle, name: "Customer Testimonials" },
+    { icon: Smile, name: "Happy Clients" },
+    { icon: ThumbsUp, name: "Recommended Service" },
+    { icon: Star, name: "Top Rated" },
+    { icon: Award, name: "Award Winning" }
   ];
 
   return (
@@ -545,7 +536,7 @@ const HavenArkCompanyLandingPage = () => {
               >
                 <Card className="overflow-hidden shadow-2xl">
                   <img 
-                    src="/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
+                    src={cleaningActionImage}
                     alt="Professional Cleaning Service"
                     className="w-full h-auto"
                   />
@@ -770,7 +761,7 @@ const HavenArkCompanyLandingPage = () => {
 
           {/* Mobile: Horizontal scroll with 2 columns visible, Desktop: Grid */}
           <div className="md:grid md:grid-cols-3 lg:grid-cols-6 md:gap-6 md:max-w-6xl md:mx-auto flex md:flex-none overflow-x-auto pb-4 -mx-4 px-4 gap-4 snap-x snap-mandatory scrollbar-hide">
-            {newsOutlets.map((outlet, index) => (
+            {reviewIcons.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -781,14 +772,10 @@ const HavenArkCompanyLandingPage = () => {
               >
                 <Card className="p-4 sm:p-6 hover:shadow-lg transition-all hover:-translate-y-1 group cursor-pointer h-full flex flex-col items-center justify-center">
                   <div className="relative w-full h-16 sm:h-20 mb-2 sm:mb-4 flex items-center justify-center">
-                    <img 
-                      src={outlet.logo} 
-                      alt={outlet.name}
-                      className="max-w-full max-h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
-                    />
+                    <item.icon className="w-12 h-12 sm:w-16 sm:h-16 text-primary/60 group-hover:text-primary transition-colors" />
                   </div>
                   <p className="text-[10px] sm:text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors line-clamp-2">
-                    {outlet.feature}
+                    {item.name}
                   </p>
                 </Card>
               </motion.div>
@@ -818,8 +805,13 @@ const HavenArkCompanyLandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12 sm:py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ backgroundImage: `url(${cleanHomeInterior})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/95" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -22,8 +22,8 @@ const Footer = () => {
   const isMobile = useIsMobile();
 
   // Define logo URLs for light and dark modes
-  const lightLogoUrl = "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png";
-  const darkLogoUrl = "/lovable-uploads/dacda39a-48ba-4f33-813b-c570e9686ae3.png";
+  const lightLogoUrl = "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png";
+  const darkLogoUrl = "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png";
   const logoUrl = mounted && resolvedTheme === 'dark' ? darkLogoUrl : lightLogoUrl;
   
   useEffect(() => {
@@ -60,7 +60,7 @@ const Footer = () => {
               {mounted ? (
                 <img 
                   src={logoUrl} 
-                  alt="Wiggly Logo" 
+                  alt="Shalean Logo" 
                   className={`${isMobile ? 'h-8' : 'h-12'} object-contain`} 
                 />
               ) : (
