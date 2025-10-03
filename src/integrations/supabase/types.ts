@@ -446,6 +446,7 @@ export type Database = {
           description: string | null
           duration_minutes: number | null
           id: string
+          lesson_type: string | null
           module_id: string | null
           order_index: number
           title: string
@@ -458,6 +459,7 @@ export type Database = {
           description?: string | null
           duration_minutes?: number | null
           id?: string
+          lesson_type?: string | null
           module_id?: string | null
           order_index: number
           title: string
@@ -470,6 +472,7 @@ export type Database = {
           description?: string | null
           duration_minutes?: number | null
           id?: string
+          lesson_type?: string | null
           module_id?: string | null
           order_index?: number
           title?: string
@@ -533,6 +536,7 @@ export type Database = {
           created_at: string | null
           description: string | null
           id: string
+          name: string | null
           title: string
           updated_at: string | null
           user_id: string
@@ -542,6 +546,7 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           id?: string
+          name?: string | null
           title: string
           updated_at?: string | null
           user_id: string
@@ -551,6 +556,7 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           id?: string
+          name?: string | null
           title?: string
           updated_at?: string | null
           user_id?: string
@@ -617,18 +623,21 @@ export type Database = {
         Row: {
           created_at: string | null
           description: string | null
+          hierarchy_level: number | null
           id: string
           name: string
         }
         Insert: {
           created_at?: string | null
           description?: string | null
+          hierarchy_level?: number | null
           id?: string
           name: string
         }
         Update: {
           created_at?: string | null
           description?: string | null
+          hierarchy_level?: number | null
           id?: string
           name?: string
         }
@@ -815,12 +824,15 @@ export type Database = {
           exit_price: number | null
           id: string
           management_rating: number | null
+          mood: string | null
           notes: string | null
           pnl: number
           quantity: number | null
           setup_rating: number | null
+          strategy: string | null
           symbol: string
           trade_type: string | null
+          type: string | null
           updated_at: string | null
           user_id: string | null
         }
@@ -833,12 +845,15 @@ export type Database = {
           exit_price?: number | null
           id?: string
           management_rating?: number | null
+          mood?: string | null
           notes?: string | null
           pnl: number
           quantity?: number | null
           setup_rating?: number | null
+          strategy?: string | null
           symbol: string
           trade_type?: string | null
+          type?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
@@ -851,12 +866,15 @@ export type Database = {
           exit_price?: number | null
           id?: string
           management_rating?: number | null
+          mood?: string | null
           notes?: string | null
           pnl?: number
           quantity?: number | null
           setup_rating?: number | null
+          strategy?: string | null
           symbol?: string
           trade_type?: string | null
+          type?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
@@ -955,6 +973,7 @@ export type Database = {
           created_at: string | null
           description: string | null
           id: string
+          name: string | null
           title: string
           updated_at: string | null
           user_id: string
@@ -983,12 +1002,15 @@ export type Database = {
           exit_price: number | null
           id: string
           management_rating: number | null
+          mood: string | null
           notes: string | null
           pnl: number
           quantity: number | null
           setup_rating: number | null
+          strategy: string | null
           symbol: string
           trade_type: string | null
+          type: string | null
           updated_at: string | null
           user_id: string | null
         }[]
