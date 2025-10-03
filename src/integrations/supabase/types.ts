@@ -132,25 +132,31 @@ export type Database = {
           booking_id: string
           created_at: string
           id: string
+          item_type: string | null
           line_total: number
           qty: number
           service_item_id: string
+          unit_price: number | null
         }
         Insert: {
           booking_id: string
           created_at?: string
           id?: string
+          item_type?: string | null
           line_total: number
           qty: number
           service_item_id: string
+          unit_price?: number | null
         }
         Update: {
           booking_id?: string
           created_at?: string
           id?: string
+          item_type?: string | null
           line_total?: number
           qty?: number
           service_item_id?: string
+          unit_price?: number | null
         }
         Relationships: [
           {
