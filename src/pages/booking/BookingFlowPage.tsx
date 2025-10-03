@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { getServiceBySlug, getOrCreateDraftBooking, Service } from '@/services/booking-service';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
@@ -13,6 +12,7 @@ import { PropertyStep } from '@/components/booking/PropertyStep';
 import { DateTimeStep } from '@/components/booking/DateTimeStep';
 import { ExtrasStep } from '@/components/booking/ExtrasStep';
 import { ReviewStep } from '@/components/booking/ReviewStep';
+import { BookingSummary } from '@/components/booking/BookingSummary';
 
 const STEPS = [
   { number: 1, title: 'Service & Package' },
@@ -136,42 +136,54 @@ export default function BookingFlowPage() {
 
         {/* Main Content */}
         <div className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto">
-            {currentStep === 1 && (
-              <ServiceStep 
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Main Content Area */}
+            <div className="lg:col-span-2">
+              {currentStep === 1 && (
+                <ServiceStep 
+                  service={service}
+                  bookingId={bookingId}
+                  onNext={handleNext}
+                />
+              )}
+              {currentStep === 2 && (
+                <PropertyStep
+                  bookingId={bookingId}
+                  onNext={handleNext}
+                  onBack={handleBack}
+                />
+              )}
+              {currentStep === 3 && (
+                <DateTimeStep
+                  bookingId={bookingId}
+                  onNext={handleNext}
+                  onBack={handleBack}
+                />
+              )}
+              {currentStep === 4 && (
+                <ExtrasStep
+                  service={service}
+                  bookingId={bookingId}
+                  onNext={handleNext}
+                  onBack={handleBack}
+                />
+              )}
+              {currentStep === 5 && (
+                <ReviewStep
+                  bookingId={bookingId}
+                  onBack={handleBack}
+                />
+              )}
+            </div>
+
+            {/* Sticky Sidebar Summary */}
+            <div className="lg:col-span-1">
+              <BookingSummary
+                bookingId={bookingId}
                 service={service}
-                bookingId={bookingId}
-                onNext={handleNext}
+                currentStep={currentStep}
               />
-            )}
-            {currentStep === 2 && (
-              <PropertyStep
-                bookingId={bookingId}
-                onNext={handleNext}
-                onBack={handleBack}
-              />
-            )}
-            {currentStep === 3 && (
-              <DateTimeStep
-                bookingId={bookingId}
-                onNext={handleNext}
-                onBack={handleBack}
-              />
-            )}
-            {currentStep === 4 && (
-              <ExtrasStep
-                service={service}
-                bookingId={bookingId}
-                onNext={handleNext}
-                onBack={handleBack}
-              />
-            )}
-            {currentStep === 5 && (
-              <ReviewStep
-                bookingId={bookingId}
-                onBack={handleBack}
-              />
-            )}
+            </div>
           </div>
         </div>
       </div>

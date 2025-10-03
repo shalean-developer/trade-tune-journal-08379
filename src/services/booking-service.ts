@@ -183,3 +183,90 @@ export const getUserBookings = async (userId: string): Promise<Booking[]> => {
   if (error) throw error;
   return data || [];
 };
+
+// Booking items management
+export const upsertBookingItem = async (
+  bookingId: string,
+  itemType: string,
+  quantity: number,
+  unitPrice: number
+) => {
+  const { data, error } = await supabase
+    .from('booking_items')
+    .upsert({
+      booking_id: bookingId,
+      item_type: itemType,
+      quantity,
+      unit_price: unitPrice
+    }, { onConflict: 'booking_id,item_type' })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const getBookingItems = async (bookingId: string) => {
+  const { data, error } = await supabase
+    .from('booking_items')
+    .select('*')
+    .eq('booking_id', bookingId);
+
+  if (error) throw error;
+  return data || [];
+};
+
+// Booking extras management
+export const upsertBookingExtra = async (
+  bookingId: string,
+  extraId: string,
+  quantity: number,
+  unitPrice: number
+) => {
+  const { data, error } = await supabase
+    .from('booking_extras')
+    .upsert({
+      booking_id: bookingId,
+      extra_id: extraId,
+      quantity,
+      unit_price: unitPrice
+    }, { onConflict: 'booking_id,extra_id' })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
+
+export const deleteBookingExtra = async (bookingId: string, extraId: string) => {
+  const { error } = await supabase
+    .from('booking_extras')
+    .delete()
+    .eq('booking_id', bookingId)
+    .eq('extra_id', extraId);
+
+  if (error) throw error;
+};
+
+export const getBookingExtras = async (bookingId: string) => {
+  const { data, error } = await supabase
+    .from('booking_extras')
+    .select('*, service_extras(*)')
+    .eq('booking_id', bookingId);
+
+  if (error) throw error;
+  return data || [];
+};
+
+// Mark booking as ready for payment
+export const markBookingReady = async (bookingId: string) => {
+  const { data, error } = await supabase
+    .from('bookings')
+    .update({ status: 'READY_FOR_PAYMENT' })
+    .eq('id', bookingId)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+};
