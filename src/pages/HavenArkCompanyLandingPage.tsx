@@ -192,82 +192,39 @@ const HavenArkCompanyLandingPage = () => {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-foreground hover:text-primary">
-                      Programs
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid gap-3 p-6 w-[400px] lg:w-[500px]">
-                        <NavigationMenuLink asChild>
-                          <div 
-                            className="group grid h-auto w-full select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
-                            onClick={() => navigate('/offline-program')}
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="p-2 rounded-md bg-primary/10 text-primary">
-                                <MapPin className="h-4 w-4" />
-                              </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none">Offline Program</div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                  Face-to-face learning with expert mentors
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink asChild>
-                          <div 
-                            className="group grid h-auto w-full select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
-                            onClick={() => navigate('/online-program')}
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="p-2 rounded-md bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-                                <Monitor className="h-4 w-4" />
-                              </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none">Online Program</div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                  Learn from anywhere with live sessions
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </NavigationMenuLink>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/masterclass')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
+                      style={{ color: location.pathname === '/' ? '#2A869E' : undefined }}
+                      onClick={() => navigate('/')}
                     >
-                      Masterclass
+                      Home
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/academy')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
+                      style={{ color: location.pathname === '/services' ? '#2A869E' : undefined }}
+                      onClick={() => navigate('/services')}
                     >
-                      Academy
+                      Services
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                      onClick={() => navigate('/wiggly')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
+                      style={{ color: location.pathname === '/how-it-works' ? '#2A869E' : undefined }}
+                      onClick={() => navigate('/how-it-works')}
                     >
-                      <div className="flex items-center space-x-2">
-                        <img 
-                          src={resolvedTheme === 'dark' ? 
-                            "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
-                            "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
-                          } 
-                          alt="Wiggly Logo" 
-                          className="w-5 h-5 object-contain"
-                        />
-                        <span>Wiggly</span>
-                      </div>
+                      How It Works
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink 
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
+                      style={{ color: location.pathname === '/contact' ? '#2A869E' : undefined }}
+                      onClick={() => navigate('/contact')}
+                    >
+                      Contact
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 </NavigationMenuList>
@@ -284,105 +241,60 @@ const HavenArkCompanyLandingPage = () => {
                     <h2 className="text-lg font-semibold text-foreground">Navigation</h2>
                     
                     <div className="space-y-3">
-                      <h3 className="text-sm font-medium text-muted-foreground">Programs</h3>
-                      
                       <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
+                        style={{ 
+                          backgroundColor: location.pathname === '/' ? 'rgba(42, 134, 158, 0.1)' : undefined,
+                          color: location.pathname === '/' ? '#2A869E' : undefined 
+                        }}
                         onClick={() => {
-                          navigate('/offline-program');
+                          navigate('/');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-primary/10 text-primary">
-                            <MapPin className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Offline Program</div>
-                            <div className="text-xs text-muted-foreground">Face-to-face learning</div>
-                          </div>
-                        </div>
-                      </button>
-                      
-                      <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
-                        onClick={() => {
-                          navigate('/online-program');
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-                            <Monitor className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Online Program</div>
-                            <div className="text-xs text-muted-foreground">Learn from anywhere</div>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-
-                    <div className="space-y-3">
-                      <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
-                        onClick={() => {
-                          navigate('/masterclass');
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
-                            <Award className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Masterclass</div>
-                            <div className="text-xs text-muted-foreground">Premium programs</div>
-                          </div>
-                        </div>
+                        <div className="font-medium text-sm">Home</div>
                       </button>
 
                       <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
+                        style={{ 
+                          backgroundColor: location.pathname === '/services' ? 'rgba(42, 134, 158, 0.1)' : undefined,
+                          color: location.pathname === '/services' ? '#2A869E' : undefined 
+                        }}
                         onClick={() => {
-                          navigate('/academy');
+                          navigate('/services');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-                            <GraduationCap className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Academy</div>
-                            <div className="text-xs text-muted-foreground">Trading courses</div>
-                          </div>
-                        </div>
+                        <div className="font-medium text-sm">Services</div>
                       </button>
 
                       <button 
-                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
+                        style={{ 
+                          backgroundColor: location.pathname === '/how-it-works' ? 'rgba(42, 134, 158, 0.1)' : undefined,
+                          color: location.pathname === '/how-it-works' ? '#2A869E' : undefined 
+                        }}
                         onClick={() => {
-                          navigate('/wiggly');
+                          navigate('/how-it-works');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 rounded-md bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
-                            <img 
-                              src={resolvedTheme === 'dark' ? 
-                                "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
-                                "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
-                              } 
-                              alt="Wiggly Logo" 
-                              className="w-4 h-4 object-contain"
-                            />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm">Wiggly AI</div>
-                            <div className="text-xs text-muted-foreground">AI trading tools</div>
-                          </div>
-                        </div>
+                        <div className="font-medium text-sm">How It Works</div>
+                      </button>
+
+                      <button 
+                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
+                        style={{ 
+                          backgroundColor: location.pathname === '/contact' ? 'rgba(42, 134, 158, 0.1)' : undefined,
+                          color: location.pathname === '/contact' ? '#2A869E' : undefined 
+                        }}
+                        onClick={() => {
+                          navigate('/contact');
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="font-medium text-sm">Contact</div>
                       </button>
                     </div>
                   </div>
@@ -393,18 +305,21 @@ const HavenArkCompanyLandingPage = () => {
             <div className={`flex items-center ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
               <Button 
                 variant="ghost" 
-                onClick={() => window.open('https://havenark.exlyapp.com/eud/login/email', '_blank')}
-                className="hover:text-primary"
+                onClick={() => navigate('/login')}
+                className="hover:text-[#180D39]"
                 size={isMobile ? "sm" : "default"}
               >
                 Login
               </Button>
               <Button 
-                onClick={() => navigate('/haven-ark/signup')}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => navigate('/booking')}
+                style={{ backgroundColor: '#2A869E', color: 'white' }}
+                className="hover:opacity-90"
                 size={isMobile ? "sm" : "default"}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#180D39'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2A869E'}
               >
-                {isMobile ? "Start" : "Get Started"}
+                {isMobile ? "Book" : "Book Now"}
               </Button>
             </div>
           </div>
