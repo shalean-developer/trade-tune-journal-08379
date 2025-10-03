@@ -85,7 +85,7 @@ export default function QuotePage() {
         }));
 
       // Insert quote request into database
-      const { error } = await supabase
+      const { error: dbError } = await supabase
         .from('quote_requests')
         .insert({
           customer_name: formData.name,
@@ -100,7 +100,28 @@ export default function QuotePage() {
           status: 'pending',
         });
 
-      if (error) throw error;
+      if (dbError) throw dbError;
+
+      // Send confirmation and notification emails
+      const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+        body: {
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerPhone: formData.phone,
+          serviceType: formData.serviceType,
+          address: formData.address,
+          bedrooms: formData.bedrooms ? parseInt(formData.bedrooms) : undefined,
+          bathrooms: formData.bathrooms ? parseInt(formData.bathrooms) : undefined,
+          message: formData.message,
+          extras: extrasData.length > 0 ? extrasData : undefined,
+        },
+      });
+
+      if (emailError) {
+        console.error('Email sending failed:', emailError);
+        // Don't fail the whole operation if email fails
+        toast.warning('Quote saved but confirmation email failed to send');
+      }
 
       setSubmitted(true);
       toast.success('Quote request submitted successfully!');
