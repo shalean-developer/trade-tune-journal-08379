@@ -58,14 +58,15 @@ export default function BookingFlowPage() {
       // Get or create booking ID
       let userId = user?.id;
       
-      // If no user is logged in, use a temporary session ID
+      // If no user is logged in, create a temporary guest UUID
       if (!userId) {
-        let tempSessionId = localStorage.getItem('temp_booking_session');
-        if (!tempSessionId) {
-          tempSessionId = `temp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-          localStorage.setItem('temp_booking_session', tempSessionId);
+        let guestUserId = localStorage.getItem('guest_user_id');
+        if (!guestUserId) {
+          // Generate a valid UUID for the guest user
+          guestUserId = crypto.randomUUID();
+          localStorage.setItem('guest_user_id', guestUserId);
         }
-        userId = tempSessionId;
+        userId = guestUserId;
       }
 
       // Create or get draft booking
