@@ -343,7 +343,6 @@ export default function QuotePage() {
                       <Select 
                         value={formData.serviceType} 
                         onValueChange={(value) => handleChange('serviceType', value)}
-                        required
                       >
                         <SelectTrigger id="serviceType" aria-required="true">
                           <SelectValue placeholder="Select a service type" />
