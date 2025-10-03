@@ -970,6 +970,13 @@ export type Database = {
         }
         Returns: undefined
       }
+      calculate_booking_price: {
+        Args: { p_booking_id: string }
+        Returns: {
+          estimated_minutes: number
+          total_price: number
+        }[]
+      }
       calculate_booking_totals: {
         Args: { p_booking_id: string }
         Returns: {
