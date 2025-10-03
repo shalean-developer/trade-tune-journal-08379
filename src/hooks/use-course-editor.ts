@@ -51,12 +51,10 @@ export const useCourseEditor = (courseId?: string) => {
       title: lessonRow.title,
       description: lessonRow.description || '',
       lesson_type: lessonType,
-      duration: lessonRow.duration || 0,
+      duration: lessonRow.duration_minutes || 0,
       order_index: lessonRow.order_index,
       video_url: lessonRow.video_url || '',
       content: lessonRow.content || '',
-      content_data: lessonRow.content_data || {},
-      is_free: lessonRow.is_free || false,
       completed: false
     };
   };
@@ -189,7 +187,7 @@ export const useCourseEditor = (courseId?: string) => {
         description: updates.description,
         video_url: updates.video_url,
         content: updates.content,
-        duration: updates.duration,
+        duration_minutes: updates.duration,
         lesson_type: updates.lesson_type === 'reading' ? 'text' : updates.lesson_type,
         content_data: updates.content_data
       };
