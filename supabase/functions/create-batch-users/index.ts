@@ -354,7 +354,7 @@ const handler = async (req: Request): Promise<Response> => {
         results.push({
           email: userData.email,
           status: 'failed',
-          message: error.message || 'Unknown error occurred'
+          message: error instanceof Error ? error.message : 'Unknown error occurred'
         });
       }
     }
@@ -379,7 +379,7 @@ const handler = async (req: Request): Promise<Response> => {
 
   } catch (error) {
     console.error('Error in smart batch processing function:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: error instanceof Error ? error.message : 'Unknown error' }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });

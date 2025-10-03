@@ -303,7 +303,7 @@ const verifySignature = async (orderId: string, paymentId: string, signature: st
     
     try {
       // Use WebCrypto API for HMAC
-      const cryptoKey = await crypto.subtle.importKey(
+      const cryptoKey = await globalThis.crypto.subtle.importKey(
         "raw", 
         key, 
         { name: "HMAC", hash: "SHA-256" }, 
@@ -311,7 +311,7 @@ const verifySignature = async (orderId: string, paymentId: string, signature: st
         ["sign"]
       );
       
-      const signatureBuffer = await crypto.subtle.sign(
+      const signatureBuffer = await globalThis.crypto.subtle.sign(
         "HMAC", 
         cryptoKey, 
         message
@@ -507,7 +507,7 @@ serve(async (req) => {
       } catch (error) {
         console.error("Order creation error:", error);
         return new Response(
-          JSON.stringify({ error: `Order creation failed: ${error.message}` }),
+          JSON.stringify({ error: `Order creation failed: ${error instanceof Error ? error.message : 'Unknown error'}` }),
           { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
@@ -947,7 +947,7 @@ serve(async (req) => {
       } catch (error) {
         console.error("Subscription cancellation error:", error);
         return new Response(
-          JSON.stringify({ error: `Subscription cancellation failed: ${error.message}` }),
+          JSON.stringify({ error: `Subscription cancellation failed: ${error instanceof Error ? error.message : 'Unknown error'}` }),
           { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }

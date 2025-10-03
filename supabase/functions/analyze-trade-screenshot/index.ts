@@ -631,7 +631,7 @@ class PositionTracker {
 
     // Enhanced trade data with options analysis
     const optionInfo = detectOptionFromSymbol(this.symbol);
-    const directionInfo = optionInfo.isOption 
+    const directionInfo = optionInfo.isOption && (optionInfo.optionType === 'CE' || optionInfo.optionType === 'PE')
       ? calculateOptionsDirection(optionInfo.optionType, firstEntry.order.type)
       : { 
           direction: isClosingLong ? 'long' : 'short' as 'long' | 'short', 

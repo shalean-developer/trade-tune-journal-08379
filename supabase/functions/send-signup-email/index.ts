@@ -820,6 +820,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data, error } = await supabase.auth.admin.generateLink({
       type: 'signup',
       email: email,
+      password: crypto.randomUUID(), // Generate temporary password for signup link
       options: {
         redirectTo: redirectUrl
       }
