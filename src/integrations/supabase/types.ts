@@ -135,7 +135,7 @@ export type Database = {
           item_type: string | null
           line_total: number
           qty: number
-          service_item_id: string
+          service_item_id: string | null
           unit_price: number | null
         }
         Insert: {
@@ -145,7 +145,7 @@ export type Database = {
           item_type?: string | null
           line_total: number
           qty: number
-          service_item_id: string
+          service_item_id?: string | null
           unit_price?: number | null
         }
         Update: {
@@ -155,7 +155,7 @@ export type Database = {
           item_type?: string | null
           line_total?: number
           qty?: number
-          service_item_id?: string
+          service_item_id?: string | null
           unit_price?: number | null
         }
         Relationships: [
