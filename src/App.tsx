@@ -9,11 +9,9 @@ import { Toaster as SonnerToaster } from 'sonner';
 // Import landing page
 const HavenArkCompanyLandingPage = lazy(() => import('@/pages/HavenArkCompanyLandingPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
-const EmailVerificationPage = lazy(() => import('@/pages/EmailVerificationPage'));
 
 // Haven Ark auth
 const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
-const HavenArkLoginPage = lazy(() => import('@/pages/HavenArkLoginPage'));
 
 // Lazy load booking pages
 const ServicesPage = lazy(() => import('@/pages/booking/ServicesPage'));
@@ -21,10 +19,7 @@ const BookingFlowPage = lazy(() => import('@/pages/booking/BookingFlowPage'));
 const CheckoutPage = lazy(() => import('@/pages/booking/CheckoutPage'));
 
 // Feature showcase pages
-const AIAssistantPage = lazy(() => import('@/pages/features/AIAssistantPage'));
-const CalculatorPage = lazy(() => import('@/pages/features/CalculatorPage'));
 const EmotionsPage = lazy(() => import('@/pages/features/EmotionsPage'));
-const TimePage = lazy(() => import('@/pages/features/TimePage'));
 const TradeEntryPage = lazy(() => import('@/pages/features/TradeEntryPage'));
 const FeaturePlaybooksPage = lazy(() => import('@/pages/features/PlaybooksPage'));
 const SmartTradeImportPage = lazy(() => import('@/pages/features/SmartTradeImportPage'));
@@ -45,16 +40,9 @@ function App() {
               
               {/* Haven Ark auth routes */}
               <Route path="/haven-ark/signup" element={<HavenArkSignupPage />} />
-              <Route path="/haven-ark/login" element={<HavenArkLoginPage />} />
-              
-              {/* Email verification */}
-              <Route path="/email-verification" element={<EmailVerificationPage />} />
               
               {/* Feature showcase pages - accessible to all users */}
-              <Route path="/features/ai-assistant" element={<AIAssistantPage />} />
-              <Route path="/features/calculator" element={<CalculatorPage />} />
               <Route path="/features/emotions" element={<EmotionsPage />} />
-              <Route path="/features/time" element={<TimePage />} />
               <Route path="/features/trade-entry" element={<TradeEntryPage />} />
               <Route path="/features/playbooks" element={<FeaturePlaybooksPage />} />
               <Route path="/features/smart-trade-import" element={<SmartTradeImportPage />} />

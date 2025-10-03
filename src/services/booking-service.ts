@@ -147,7 +147,7 @@ export const updateBooking = async (
 ): Promise<Booking> => {
   const { data, error } = await supabase
     .from('bookings')
-    .update(updates)
+    .update(updates as any)
     .eq('id', bookingId)
     .select()
     .single();
@@ -196,9 +196,10 @@ export const upsertBookingItem = async (
     .upsert({
       booking_id: bookingId,
       item_type: itemType,
-      quantity,
-      unit_price: unitPrice
-    }, { onConflict: 'booking_id,item_type' })
+      qty: quantity,
+      unit_price: unitPrice,
+      line_total: quantity * unitPrice
+    } as any, { onConflict: 'booking_id,item_type' })
     .select()
     .single();
 
@@ -223,14 +224,15 @@ export const upsertBookingExtra = async (
   quantity: number,
   unitPrice: number
 ) => {
-  const { data, error } = await supabase
+  const { data, error} = await supabase
     .from('booking_extras')
     .upsert({
       booking_id: bookingId,
-      extra_id: extraId,
-      quantity,
-      unit_price: unitPrice
-    }, { onConflict: 'booking_id,extra_id' })
+      service_extra_id: extraId,
+      qty: quantity,
+      unit_price: unitPrice,
+      line_total: quantity * unitPrice
+    } as any, { onConflict: 'booking_id,service_extra_id' })
     .select()
     .single();
 
@@ -243,7 +245,7 @@ export const deleteBookingExtra = async (bookingId: string, extraId: string) => 
     .from('booking_extras')
     .delete()
     .eq('booking_id', bookingId)
-    .eq('extra_id', extraId);
+    .eq('service_extra_id', extraId);
 
   if (error) throw error;
 };
