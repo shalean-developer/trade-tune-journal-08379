@@ -55,17 +55,28 @@ export default function BookingFlowPage() {
       }
       setService(serviceData);
 
-      // Create or get draft booking if user is logged in
-      if (user) {
-        const booking = await getOrCreateDraftBooking(user.id);
-        setBookingId(booking.id);
-        
-        // Update booking with selected service
-        await supabase
-          .from('bookings')
-          .update({ service_id: serviceData.id })
-          .eq('id', booking.id);
+      // Get or create booking ID
+      let userId = user?.id;
+      
+      // If no user is logged in, use a temporary session ID
+      if (!userId) {
+        let tempSessionId = localStorage.getItem('temp_booking_session');
+        if (!tempSessionId) {
+          tempSessionId = `temp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('temp_booking_session', tempSessionId);
+        }
+        userId = tempSessionId;
       }
+
+      // Create or get draft booking
+      const booking = await getOrCreateDraftBooking(userId);
+      setBookingId(booking.id);
+      
+      // Update booking with selected service
+      await supabase
+        .from('bookings')
+        .update({ service_id: serviceData.id })
+        .eq('id', booking.id);
     } catch (error) {
       console.error('Error loading booking flow:', error);
       toast.error('Failed to initialize booking');

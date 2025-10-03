@@ -111,7 +111,7 @@ export const getSuburbsByRegion = async (regionId: string): Promise<Suburb[]> =>
   return data || [];
 };
 
-// Get or create draft booking for current user
+// Get or create draft booking for current user (or temporary session)
 export const getOrCreateDraftBooking = async (userId: string): Promise<Booking> => {
   // First try to find existing draft
   const { data: existingDraft, error: fetchError } = await supabase
@@ -119,7 +119,7 @@ export const getOrCreateDraftBooking = async (userId: string): Promise<Booking> 
     .select('*')
     .eq('customer_id', userId)
     .eq('status', 'DRAFT')
-    .single();
+    .maybeSingle();
 
   if (existingDraft) {
     return existingDraft;
