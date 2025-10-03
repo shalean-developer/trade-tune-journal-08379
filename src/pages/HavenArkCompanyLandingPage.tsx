@@ -27,24 +27,9 @@ import {
   Brain,
   Linkedin,
   Star,
-  Quote,
-  UserCheck,
-  Calendar,
-  CheckSquare,
-  Lock,
-  MessageCircle,
-  Smile,
-  ThumbsUp
+  Quote
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import cleaningActionImage from '@/assets/cleaning-action-mopping.jpg';
-import standardCleaningImage from '@/assets/standard-cleaning-service.jpg';
-import deepCleaningImage from '@/assets/deep-cleaning-service.jpg';
-import airbnbTurnoverImage from '@/assets/airbnb-turnover-service.jpg';
-import cleanerPortrait1 from '@/assets/cleaner-portrait-1.jpg';
-import cleanerPortrait2 from '@/assets/cleaner-portrait-2.jpg';
-import cleanerPortrait3 from '@/assets/cleaner-portrait-3.jpg';
-import cleanHomeInterior from '@/assets/clean-home-interior.jpg';
 
 const HavenArkCompanyLandingPage = () => {
   const isMobile = useIsMobile();
@@ -61,25 +46,25 @@ const HavenArkCompanyLandingPage = () => {
 
   const features = [
     {
-      icon: UserCheck,
+      icon: Users,
       title: "Expert Cleaners",
       description: "Background-checked, trained professionals committed to excellence",
       color: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
     },
     {
-      icon: Calendar,
+      icon: Sparkles,
       title: "Flexible Scheduling",
       description: "Book same-day or in advance with easy online scheduling",
       color: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30"
     },
     {
-      icon: CheckSquare,
+      icon: Shield,
       title: "Transparent Pricing",
       description: "Clear quotes with no hidden fees, ever",
       color: "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30"
     },
     {
-      icon: Lock,
+      icon: Zap,
       title: "Secure Payments",
       description: "Paystack checkout with email receipts for your peace of mind",
       color: "text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30"
@@ -90,21 +75,21 @@ const HavenArkCompanyLandingPage = () => {
     {
       title: "Standard Cleaning",
       description: "Regular home cleaning to maintain your space fresh and tidy",
-      image: standardCleaningImage,
+      image: "/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png",
       link: "/booking/services",
       badge: "Popular"
     },
     {
       title: "Deep Cleaning",
       description: "Thorough deep clean for every corner of your home or office",
-      image: deepCleaningImage,
+      image: "/lovable-uploads/23b54970-8e48-42a5-95c9-78c42fe65e6d.png",
       link: "/booking/services",
       badge: "Recommended"
     },
     {
       title: "Airbnb Turnover",
       description: "Fast, professional cleaning between guests for hosts",
-      image: airbnbTurnoverImage,
+      image: "/lovable-uploads/2780255e-6d53-44a4-8fcf-7fa8a4a25bc1.png",
       link: "/booking/services",
       badge: "Same-Day"
     }
@@ -116,7 +101,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Deep Cleaning Specialist",
       experience: "5+ Years",
       specialization: "Deep Cleaning & Airbnb Turnovers",
-      image: cleanerPortrait1,
+      image: "/lovable-uploads/604a9013-c183-4e62-b97f-aadea9e3b4a9.png",
       linkedin: "#",
       achievements: ["Certified Professional", "500+ Happy Clients", "Airbnb Superhost Approved"]
     },
@@ -125,7 +110,7 @@ const HavenArkCompanyLandingPage = () => {
       role: "Office Cleaning Expert",
       experience: "7+ Years",
       specialization: "Office Cleaning & Move-In/Out Services",
-      image: cleanerPortrait2,
+      image: "/lovable-uploads/5ff49b53-f922-45bb-8a00-6ae902ecf012.png",
       linkedin: "#",
       achievements: ["Background Checked", "Corporate Trained", "Eco-Friendly Certified"]
     },
@@ -134,20 +119,43 @@ const HavenArkCompanyLandingPage = () => {
       role: "Residential Care Specialist",
       experience: "6+ Years",
       specialization: "Trusted by families for reliable home care",
-      image: cleanerPortrait3,
+      image: "/lovable-uploads/86f360ff-2b03-4cb9-9bff-e07a55844eed.png",
       linkedin: "#",
       achievements: ["Trusted by Families", "Detail-Oriented", "Flexible Scheduling"]
     }
   ];
 
-  // Review/testimonial icons for customer reviews section
-  const reviewIcons = [
-    { icon: Star, name: "5-Star Reviews" },
-    { icon: MessageCircle, name: "Customer Testimonials" },
-    { icon: Smile, name: "Happy Clients" },
-    { icon: ThumbsUp, name: "Recommended Service" },
-    { icon: Star, name: "Top Rated" },
-    { icon: Award, name: "Award Winning" }
+  const newsOutlets = [
+    {
+      name: "Economic Times",
+      logo: "/lovable-uploads/990e60b1-9a6f-45a0-b5e6-9bb5109d373a.png",
+      feature: "Best Trading Education Platform 2024"
+    },
+    {
+      name: "Business Standard",
+      logo: "/lovable-uploads/7af97329-5f82-41a6-af28-113f7711536c.png",
+      feature: "Innovation in Financial Education"
+    },
+    {
+      name: "Forbes India",
+      logo: "/lovable-uploads/9ea240e5-b9e3-4cda-a9f3-829b0695c636.png",
+      feature: "Top EdTech Startup to Watch"
+    },
+    {
+      name: "The Hindu Business Line",
+      logo: "/lovable-uploads/cd0c7104-628a-41b5-86e5-f28f244ceaf2.png",
+      feature: "Transforming Trading Education"
+    },
+    {
+      name: "Mint",
+      logo: "/lovable-uploads/dacda39a-48ba-4f33-813b-c570e9686ae3.png",
+      feature: "Leading Financial Learning Platform"
+    },
+    {
+      name: "YourStory",
+      logo: "/lovable-uploads/cee9ac58-3a60-4703-840f-425403c6488c.png",
+      feature: "Empowering Retail Traders"
+    }
   ];
 
   return (
@@ -192,39 +200,82 @@ const HavenArkCompanyLandingPage = () => {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-foreground hover:text-primary">
+                      Programs
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px] lg:w-[500px]">
+                        <NavigationMenuLink asChild>
+                          <div 
+                            className="group grid h-auto w-full select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
+                            onClick={() => navigate('/offline-program')}
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="p-2 rounded-md bg-primary/10 text-primary">
+                                <MapPin className="h-4 w-4" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium leading-none">Offline Program</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  Face-to-face learning with expert mentors
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <div 
+                            className="group grid h-auto w-full select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
+                            onClick={() => navigate('/online-program')}
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="p-2 rounded-md bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                                <Monitor className="h-4 w-4" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium leading-none">Online Program</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  Learn from anywhere with live sessions
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
-                      style={{ color: location.pathname === '/' ? '#2A869E' : undefined }}
-                      onClick={() => navigate('/')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+                      onClick={() => navigate('/masterclass')}
                     >
-                      Home
+                      Masterclass
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
-                      style={{ color: location.pathname === '/services' ? '#2A869E' : undefined }}
-                      onClick={() => navigate('/services')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+                      onClick={() => navigate('/academy')}
                     >
-                      Services
+                      Academy
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
-                      style={{ color: location.pathname === '/how-it-works' ? '#2A869E' : undefined }}
-                      onClick={() => navigate('/how-it-works')}
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer"
+                      onClick={() => navigate('/wiggly')}
                     >
-                      How It Works
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink 
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-[#180D39] cursor-pointer"
-                      style={{ color: location.pathname === '/contact' ? '#2A869E' : undefined }}
-                      onClick={() => navigate('/contact')}
-                    >
-                      Contact
+                      <div className="flex items-center space-x-2">
+                        <img 
+                          src={resolvedTheme === 'dark' ? 
+                            "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
+                            "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
+                          } 
+                          alt="Wiggly Logo" 
+                          className="w-5 h-5 object-contain"
+                        />
+                        <span>Wiggly</span>
+                      </div>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 </NavigationMenuList>
@@ -241,60 +292,105 @@ const HavenArkCompanyLandingPage = () => {
                     <h2 className="text-lg font-semibold text-foreground">Navigation</h2>
                     
                     <div className="space-y-3">
+                      <h3 className="text-sm font-medium text-muted-foreground">Programs</h3>
+                      
                       <button 
-                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
-                        style={{ 
-                          backgroundColor: location.pathname === '/' ? 'rgba(42, 134, 158, 0.1)' : undefined,
-                          color: location.pathname === '/' ? '#2A869E' : undefined 
-                        }}
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/');
+                          navigate('/offline-program');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="font-medium text-sm">Home</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-primary/10 text-primary">
+                            <MapPin className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Offline Program</div>
+                            <div className="text-xs text-muted-foreground">Face-to-face learning</div>
+                          </div>
+                        </div>
+                      </button>
+                      
+                      <button 
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        onClick={() => {
+                          navigate('/online-program');
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                            <Monitor className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Online Program</div>
+                            <div className="text-xs text-muted-foreground">Learn from anywhere</div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div className="space-y-3">
+                      <button 
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
+                        onClick={() => {
+                          navigate('/masterclass');
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+                            <Award className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Masterclass</div>
+                            <div className="text-xs text-muted-foreground">Premium programs</div>
+                          </div>
+                        </div>
                       </button>
 
                       <button 
-                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
-                        style={{ 
-                          backgroundColor: location.pathname === '/services' ? 'rgba(42, 134, 158, 0.1)' : undefined,
-                          color: location.pathname === '/services' ? '#2A869E' : undefined 
-                        }}
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/services');
+                          navigate('/academy');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="font-medium text-sm">Services</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
+                            <GraduationCap className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Academy</div>
+                            <div className="text-xs text-muted-foreground">Trading courses</div>
+                          </div>
+                        </div>
                       </button>
 
                       <button 
-                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
-                        style={{ 
-                          backgroundColor: location.pathname === '/how-it-works' ? 'rgba(42, 134, 158, 0.1)' : undefined,
-                          color: location.pathname === '/how-it-works' ? '#2A869E' : undefined 
-                        }}
+                        className="w-full p-3 rounded-lg border border-border hover:bg-accent transition-colors text-left"
                         onClick={() => {
-                          navigate('/how-it-works');
+                          navigate('/wiggly');
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="font-medium text-sm">How It Works</div>
-                      </button>
-
-                      <button 
-                        className="w-full p-3 rounded-lg border border-border transition-colors text-left"
-                        style={{ 
-                          backgroundColor: location.pathname === '/contact' ? 'rgba(42, 134, 158, 0.1)' : undefined,
-                          color: location.pathname === '/contact' ? '#2A869E' : undefined 
-                        }}
-                        onClick={() => {
-                          navigate('/contact');
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <div className="font-medium text-sm">Contact</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-md bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
+                            <img 
+                              src={resolvedTheme === 'dark' ? 
+                                "/lovable-uploads/6120e2e2-296a-403d-a2a3-7cae3e7241fa.png" : 
+                                "/lovable-uploads/9b3d413e-651f-4c3f-b921-f44bff49f09c.png"
+                              } 
+                              alt="Wiggly Logo" 
+                              className="w-4 h-4 object-contain"
+                            />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm">Wiggly AI</div>
+                            <div className="text-xs text-muted-foreground">AI trading tools</div>
+                          </div>
+                        </div>
                       </button>
                     </div>
                   </div>
@@ -305,21 +401,18 @@ const HavenArkCompanyLandingPage = () => {
             <div className={`flex items-center ${isMobile ? 'space-x-1' : 'space-x-2'}`}>
               <Button 
                 variant="ghost" 
-                onClick={() => navigate('/login')}
-                className="hover:text-[#180D39]"
+                onClick={() => window.open('https://havenark.exlyapp.com/eud/login/email', '_blank')}
+                className="hover:text-primary"
                 size={isMobile ? "sm" : "default"}
               >
                 Login
               </Button>
               <Button 
-                onClick={() => navigate('/booking')}
-                style={{ backgroundColor: '#2A869E', color: 'white' }}
-                className="hover:opacity-90"
+                onClick={() => navigate('/haven-ark/signup')}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 size={isMobile ? "sm" : "default"}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#180D39'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2A869E'}
               >
-                {isMobile ? "Book" : "Book Now"}
+                {isMobile ? "Start" : "Get Started"}
               </Button>
             </div>
           </div>
@@ -452,7 +545,7 @@ const HavenArkCompanyLandingPage = () => {
               >
                 <Card className="overflow-hidden shadow-2xl">
                   <img 
-                    src={cleaningActionImage}
+                    src="/lovable-uploads/10c2135b-18ac-464b-a5e3-fd5430a26063.png"
                     alt="Professional Cleaning Service"
                     className="w-full h-auto"
                   />
@@ -677,7 +770,7 @@ const HavenArkCompanyLandingPage = () => {
 
           {/* Mobile: Horizontal scroll with 2 columns visible, Desktop: Grid */}
           <div className="md:grid md:grid-cols-3 lg:grid-cols-6 md:gap-6 md:max-w-6xl md:mx-auto flex md:flex-none overflow-x-auto pb-4 -mx-4 px-4 gap-4 snap-x snap-mandatory scrollbar-hide">
-            {reviewIcons.map((item, index) => (
+            {newsOutlets.map((outlet, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -688,10 +781,14 @@ const HavenArkCompanyLandingPage = () => {
               >
                 <Card className="p-4 sm:p-6 hover:shadow-lg transition-all hover:-translate-y-1 group cursor-pointer h-full flex flex-col items-center justify-center">
                   <div className="relative w-full h-16 sm:h-20 mb-2 sm:mb-4 flex items-center justify-center">
-                    <item.icon className="w-12 h-12 sm:w-16 sm:h-16 text-primary/60 group-hover:text-primary transition-colors" />
+                    <img 
+                      src={outlet.logo} 
+                      alt={outlet.name}
+                      className="max-w-full max-h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                    />
                   </div>
                   <p className="text-[10px] sm:text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors line-clamp-2">
-                    {item.name}
+                    {outlet.feature}
                   </p>
                 </Card>
               </motion.div>
@@ -721,13 +818,8 @@ const HavenArkCompanyLandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-12 sm:py-20 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: `url(${cleanHomeInterior})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/95" />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
