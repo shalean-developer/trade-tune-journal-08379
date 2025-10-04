@@ -132,35 +132,38 @@ export default function PaymentPage() {
           customer_name: customerName,
           service_name: service.name,
         },
-        callback: async (response: any) => {
-          // Verify payment
-          try {
-            const { data, error } = await supabase.functions.invoke('verify-paystack-payment', {
-              body: { reference: response.reference },
-            });
-
+        callback: (response: any) => {
+          // Verify payment asynchronously
+          setLoading(true);
+          supabase.functions.invoke('verify-paystack-payment', {
+            body: { reference: response.reference },
+          })
+          .then(({ data, error }) => {
             if (error) throw error;
 
             if (data.verified) {
               // Send confirmation emails
-              await supabase.functions.invoke('send-booking-confirmation', {
+              return supabase.functions.invoke('send-booking-confirmation', {
                 body: {
                   booking: data.booking,
                   service,
                   cleaner,
                   extras: extras.map(e => e.extra),
                 },
+              }).then(() => {
+                toast.success("Payment successful! Confirmation emails sent.");
+                navigate(`/booking/confirmation?ref=${response.reference}`);
               });
-
-              toast.success("Payment successful! Confirmation emails sent.");
-              navigate(`/booking/confirmation?ref=${response.reference}`);
             } else {
               toast.error("Payment verification failed");
+              setLoading(false);
             }
-          } catch (error: any) {
+          })
+          .catch((error: any) => {
             console.error("Verification error:", error);
             toast.error("Failed to verify payment");
-          }
+            setLoading(false);
+          });
         },
         onClose: () => {
           toast.info("Payment cancelled");
