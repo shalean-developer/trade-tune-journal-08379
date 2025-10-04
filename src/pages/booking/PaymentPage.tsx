@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -21,6 +21,7 @@ declare global {
 export default function PaymentPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [paystackLoaded, setPaystackLoaded] = useState(false);
   const {
     service,
     bedrooms,
@@ -40,6 +41,19 @@ export default function PaymentPage() {
 
   const summary = getSummary();
 
+  // Load Paystack script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js.paystack.co/v1/inline.js';
+    script.async = true;
+    script.onload = () => setPaystackLoaded(true);
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handlePayment = async () => {
     if (!customerName || !customerEmail || !customerPhone) {
       toast.error("Please fill in all contact details");
@@ -48,6 +62,11 @@ export default function PaymentPage() {
 
     if (!service || !date || !time || !cleaner) {
       toast.error("Please complete all booking steps");
+      return;
+    }
+
+    if (!paystackLoaded || !window.PaystackPop) {
+      toast.error("Payment system is loading, please wait...");
       return;
     }
 
@@ -227,10 +246,10 @@ export default function PaymentPage() {
               </Button>
               <Button
                 onClick={handlePayment}
-                disabled={loading}
+                disabled={loading || !paystackLoaded}
                 className="flex-1"
               >
-                {loading ? "Processing..." : `Pay ₦${summary.total.toLocaleString()}`}
+                {loading ? "Processing..." : !paystackLoaded ? "Loading payment..." : `Pay ₦${summary.total.toLocaleString()}`}
               </Button>
             </div>
 
@@ -248,9 +267,6 @@ export default function PaymentPage() {
         </div>
       </div>
       <MobileSummaryDrawer />
-      
-      {/* Paystack Inline Script */}
-      <script src="https://js.paystack.co/v1/inline.js"></script>
     </div>
   );
 }
