@@ -83,7 +83,7 @@ export default function MasterclassPage() {
               <Button size="lg" onClick={() => navigate('/haven-ark/signup')}>
                 Enroll Now
               </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate('/booking/quote')}>
+              <Button size="lg" variant="outline" onClick={() => navigate('/booking/service/select')}>
                 Learn More
               </Button>
             </div>

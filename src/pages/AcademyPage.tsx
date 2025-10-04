@@ -149,7 +149,7 @@ export default function AcademyPage() {
                 Book a Cleaner
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate('/booking/quote')}>
+              <Button size="lg" variant="outline" onClick={() => navigate('/booking/service/select')}>
                 Get a Free Quote
               </Button>
             </div>

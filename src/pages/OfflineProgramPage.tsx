@@ -126,7 +126,7 @@ export default function OfflineProgramPage() {
               <Button size="lg" onClick={() => navigate('/haven-ark/signup')}>
                 Register Now
               </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate('/booking/quote')}>
+              <Button size="lg" variant="outline" onClick={() => navigate('/booking/service/select')}>
                 Request Information
               </Button>
             </div>
