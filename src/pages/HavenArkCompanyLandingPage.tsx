@@ -426,7 +426,7 @@ const HavenArkCompanyLandingPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 size="lg" 
-                onClick={() => navigate('/booking/services')}
+                onClick={() => navigate('/booking/service/select')}
                 className="w-full sm:w-auto group"
               >
                 Book a Cleaner
@@ -435,7 +435,7 @@ const HavenArkCompanyLandingPage = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/booking/quote')}
+                onClick={() => navigate('/booking/service/select')}
                 className="w-full sm:w-auto"
               >
                 Get a Free Quote
