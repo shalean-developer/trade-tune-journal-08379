@@ -19,11 +19,7 @@ const BlogPage = lazy(() => import('@/pages/BlogPage'));
 // Haven Ark auth
 const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
 
-// Lazy load booking pages
-const ServicesPage = lazy(() => import('@/pages/booking/ServicesPage'));
-const QuotePage = lazy(() => import('@/pages/booking/QuotePage'));
-const BookingFlowPage = lazy(() => import('@/pages/booking/BookingFlowPage'));
-const CheckoutPage = lazy(() => import('@/pages/booking/CheckoutPage'));
+// Booking components removed
 
 // Feature showcase pages
 const EmotionsPage = lazy(() => import('@/pages/features/EmotionsPage'));
@@ -62,11 +58,7 @@ function App() {
               <Route path="/features/playbooks" element={<FeaturePlaybooksPage />} />
               <Route path="/features/smart-trade-import" element={<SmartTradeImportPage />} />
 
-              {/* Booking system routes - accessible to all users */}
-              <Route path="/booking/services" element={<ServicesPage />} />
-              <Route path="/booking/quote" element={<QuotePage />} />
-              <Route path="/booking/service/:serviceSlug" element={<BookingFlowPage />} />
-              <Route path="/booking/checkout/:bookingId" element={<CheckoutPage />} />
+              {/* Booking routes removed */}
               
               {/* Not found */}
               <Route path="/not-found" element={<NotFoundPage />} />
