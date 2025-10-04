@@ -90,31 +90,25 @@ export type Database = {
       }
       booking_extras: {
         Row: {
-          booking_id: string
-          created_at: string
+          booking_id: string | null
+          extra_id: string | null
           id: string
-          line_total: number
-          qty: number
-          service_extra_id: string
-          unit_price: number
+          price: number
+          quantity: number | null
         }
         Insert: {
-          booking_id: string
-          created_at?: string
+          booking_id?: string | null
+          extra_id?: string | null
           id?: string
-          line_total: number
-          qty?: number
-          service_extra_id: string
-          unit_price?: number
+          price: number
+          quantity?: number | null
         }
         Update: {
-          booking_id?: string
-          created_at?: string
+          booking_id?: string | null
+          extra_id?: string | null
           id?: string
-          line_total?: number
-          qty?: number
-          service_extra_id?: string
-          unit_price?: number
+          price?: number
+          quantity?: number | null
         }
         Relationships: [
           {
@@ -125,125 +119,86 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "booking_extras_service_extra_id_fkey"
-            columns: ["service_extra_id"]
+            foreignKeyName: "booking_extras_extra_id_fkey"
+            columns: ["extra_id"]
             isOneToOne: false
             referencedRelation: "service_extras"
             referencedColumns: ["id"]
           },
         ]
       }
-      booking_items: {
-        Row: {
-          booking_id: string
-          created_at: string
-          id: string
-          item_type: string | null
-          line_total: number
-          qty: number
-          service_item_id: string | null
-          unit_price: number | null
-        }
-        Insert: {
-          booking_id: string
-          created_at?: string
-          id?: string
-          item_type?: string | null
-          line_total: number
-          qty: number
-          service_item_id?: string | null
-          unit_price?: number | null
-        }
-        Update: {
-          booking_id?: string
-          created_at?: string
-          id?: string
-          item_type?: string | null
-          line_total?: number
-          qty?: number
-          service_item_id?: string | null
-          unit_price?: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "booking_items_booking_id_fkey"
-            columns: ["booking_id"]
-            isOneToOne: false
-            referencedRelation: "bookings"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "booking_items_service_item_id_fkey"
-            columns: ["service_item_id"]
-            isOneToOne: false
-            referencedRelation: "service_items"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       bookings: {
         Row: {
-          address: string | null
+          bathrooms: number
+          bedrooms: number
+          booking_date: string
+          booking_status: string | null
+          booking_time: string
           cleaner_id: string | null
-          contact_email: string | null
-          contact_phone: string | null
-          created_at: string
-          customer_id: string
-          end_ts: string | null
-          estimated_minutes: number | null
+          created_at: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          discount: number | null
+          frequency: string
           id: string
-          notes: string | null
-          payment_ref: string | null
           payment_status: string | null
-          region_id: string | null
+          paystack_reference: string | null
+          reference: string
+          service_fee: number | null
           service_id: string | null
-          start_ts: string | null
-          status: Database["public"]["Enums"]["booking_status"]
-          suburb_id: string | null
-          total_price: number
-          updated_at: string
+          special_instructions: string | null
+          subtotal: number
+          total_amount: number
+          updated_at: string | null
         }
         Insert: {
-          address?: string | null
+          bathrooms?: number
+          bedrooms?: number
+          booking_date: string
+          booking_status?: string | null
+          booking_time: string
           cleaner_id?: string | null
-          contact_email?: string | null
-          contact_phone?: string | null
-          created_at?: string
-          customer_id: string
-          end_ts?: string | null
-          estimated_minutes?: number | null
+          created_at?: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          discount?: number | null
+          frequency?: string
           id?: string
-          notes?: string | null
-          payment_ref?: string | null
           payment_status?: string | null
-          region_id?: string | null
+          paystack_reference?: string | null
+          reference: string
+          service_fee?: number | null
           service_id?: string | null
-          start_ts?: string | null
-          status?: Database["public"]["Enums"]["booking_status"]
-          suburb_id?: string | null
-          total_price?: number
-          updated_at?: string
+          special_instructions?: string | null
+          subtotal: number
+          total_amount: number
+          updated_at?: string | null
         }
         Update: {
-          address?: string | null
+          bathrooms?: number
+          bedrooms?: number
+          booking_date?: string
+          booking_status?: string | null
+          booking_time?: string
           cleaner_id?: string | null
-          contact_email?: string | null
-          contact_phone?: string | null
-          created_at?: string
-          customer_id?: string
-          end_ts?: string | null
-          estimated_minutes?: number | null
+          created_at?: string | null
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string
+          discount?: number | null
+          frequency?: string
           id?: string
-          notes?: string | null
-          payment_ref?: string | null
           payment_status?: string | null
-          region_id?: string | null
+          paystack_reference?: string | null
+          reference?: string
+          service_fee?: number | null
           service_id?: string | null
-          start_ts?: string | null
-          status?: Database["public"]["Enums"]["booking_status"]
-          suburb_id?: string | null
-          total_price?: number
-          updated_at?: string
+          special_instructions?: string | null
+          subtotal?: number
+          total_amount?: number
+          updated_at?: string | null
         }
         Relationships: [
           {
@@ -254,24 +209,10 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "bookings_region_id_fkey"
-            columns: ["region_id"]
-            isOneToOne: false
-            referencedRelation: "regions"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "bookings_service_id_fkey"
             columns: ["service_id"]
             isOneToOne: false
             referencedRelation: "services"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "bookings_suburb_id_fkey"
-            columns: ["suburb_id"]
-            isOneToOne: false
-            referencedRelation: "suburbs"
             referencedColumns: ["id"]
           },
         ]
@@ -301,15 +242,7 @@ export type Database = {
           start_ts?: string
           status?: Database["public"]["Enums"]["availability_status"]
         }
-        Relationships: [
-          {
-            foreignKeyName: "cleaner_availability_cleaner_id_fkey"
-            columns: ["cleaner_id"]
-            isOneToOne: false
-            referencedRelation: "cleaners"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       cleaner_service_areas: {
         Row: {
@@ -332,13 +265,6 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "cleaner_service_areas_cleaner_id_fkey"
-            columns: ["cleaner_id"]
-            isOneToOne: false
-            referencedRelation: "cleaners"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "cleaner_service_areas_suburb_id_fkey"
             columns: ["suburb_id"]
             isOneToOne: false
@@ -349,38 +275,36 @@ export type Database = {
       }
       cleaners: {
         Row: {
-          active: boolean
-          bio: string | null
-          created_at: string
+          badges: string[] | null
+          created_at: string | null
           id: string
-          profile_id: string
+          is_available: boolean | null
+          name: string
+          photo_url: string | null
           rating: number | null
+          years_experience: number | null
         }
         Insert: {
-          active?: boolean
-          bio?: string | null
-          created_at?: string
+          badges?: string[] | null
+          created_at?: string | null
           id?: string
-          profile_id: string
+          is_available?: boolean | null
+          name: string
+          photo_url?: string | null
           rating?: number | null
+          years_experience?: number | null
         }
         Update: {
-          active?: boolean
-          bio?: string | null
-          created_at?: string
+          badges?: string[] | null
+          created_at?: string | null
           id?: string
-          profile_id?: string
+          is_available?: boolean | null
+          name?: string
+          photo_url?: string | null
           rating?: number | null
+          years_experience?: number | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "cleaners_profile_id_fkey"
-            columns: ["profile_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       course_modules: {
         Row: {
@@ -534,15 +458,7 @@ export type Database = {
           reference?: string | null
           status?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "payments_booking_id_fkey"
-            columns: ["booking_id"]
-            isOneToOne: false
-            referencedRelation: "bookings"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       playbooks: {
         Row: {
@@ -707,41 +623,33 @@ export type Database = {
       }
       service_extras: {
         Row: {
-          active: boolean
-          created_at: string
+          created_at: string | null
           description: string | null
+          icon: string | null
           id: string
+          is_active: boolean | null
           name: string
           price: number
-          service_id: string
         }
         Insert: {
-          active?: boolean
-          created_at?: string
+          created_at?: string | null
           description?: string | null
+          icon?: string | null
           id?: string
+          is_active?: boolean | null
           name: string
           price: number
-          service_id: string
         }
         Update: {
-          active?: boolean
-          created_at?: string
+          created_at?: string | null
           description?: string | null
+          icon?: string | null
           id?: string
+          is_active?: boolean | null
           name?: string
           price?: number
-          service_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "service_extras_service_id_fkey"
-            columns: ["service_id"]
-            isOneToOne: false
-            referencedRelation: "services"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       service_items: {
         Row: {
@@ -774,41 +682,42 @@ export type Database = {
           unit_price?: number
           unit_type?: Database["public"]["Enums"]["unit_type"]
         }
-        Relationships: [
-          {
-            foreignKeyName: "service_items_service_id_fkey"
-            columns: ["service_id"]
-            isOneToOne: false
-            referencedRelation: "services"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       services: {
         Row: {
-          active: boolean
           base_price: number
-          created_at: string
-          description: string | null
+          bathroom_price: number | null
+          bedroom_price: number | null
+          created_at: string | null
+          description: string
           id: string
+          image_url: string | null
+          is_active: boolean | null
           name: string
           slug: string
         }
         Insert: {
-          active?: boolean
           base_price: number
-          created_at?: string
-          description?: string | null
+          bathroom_price?: number | null
+          bedroom_price?: number | null
+          created_at?: string | null
+          description: string
           id?: string
+          image_url?: string | null
+          is_active?: boolean | null
           name: string
           slug: string
         }
         Update: {
-          active?: boolean
           base_price?: number
-          created_at?: string
-          description?: string | null
+          bathroom_price?: number | null
+          bedroom_price?: number | null
+          created_at?: string | null
+          description?: string
           id?: string
+          image_url?: string | null
+          is_active?: boolean | null
           name?: string
           slug?: string
         }
