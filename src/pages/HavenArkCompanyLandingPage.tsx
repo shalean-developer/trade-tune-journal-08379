@@ -76,21 +76,21 @@ const HavenArkCompanyLandingPage = () => {
       title: "Standard Cleaning",
       description: "Regular home cleaning to maintain your space fresh and tidy",
       image: "/lovable-uploads/standard-cleaning.png",
-      link: "/booking/services",
+      link: "/booking/service/select",
       badge: "Popular"
     },
     {
       title: "Deep Cleaning",
       description: "Thorough deep clean for every corner of your home or office",
       image: "/lovable-uploads/deep-cleaning.png",
-      link: "/booking/services",
+      link: "/booking/service/select",
       badge: "Recommended"
     },
     {
       title: "Airbnb Turnover",
       description: "Fast, professional cleaning between guests for hosts",
       image: "/lovable-uploads/airbnb-turnover.png",
-      link: "/booking/services",
+      link: "/booking/service/select",
       badge: "Same-Day"
     }
   ];

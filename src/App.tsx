@@ -19,7 +19,13 @@ const BlogPage = lazy(() => import('@/pages/BlogPage'));
 // Haven Ark auth
 const HavenArkSignupPage = lazy(() => import('@/pages/HavenArkSignupPage'));
 
-// Booking components removed
+// Booking pages
+const ServiceSelectionPage = lazy(() => import('@/pages/booking/ServiceSelectionPage'));
+const PropertyDetailsPage = lazy(() => import('@/pages/booking/PropertyDetailsPage'));
+const SchedulePage = lazy(() => import('@/pages/booking/SchedulePage'));
+const ReviewPage = lazy(() => import('@/pages/booking/ReviewPage'));
+const PaymentPage = lazy(() => import('@/pages/booking/PaymentPage'));
+const ConfirmationPage = lazy(() => import('@/pages/booking/ConfirmationPage'));
 
 // Feature showcase pages
 const EmotionsPage = lazy(() => import('@/pages/features/EmotionsPage'));
@@ -58,7 +64,14 @@ function App() {
               <Route path="/features/playbooks" element={<FeaturePlaybooksPage />} />
               <Route path="/features/smart-trade-import" element={<SmartTradeImportPage />} />
 
-              {/* Booking routes removed */}
+              {/* Booking system routes */}
+              <Route path="/booking/service/select" element={<ServiceSelectionPage />} />
+              <Route path="/booking/service/:serviceSlug" element={<PropertyDetailsPage />} />
+              <Route path="/booking/property" element={<PropertyDetailsPage />} />
+              <Route path="/booking/schedule" element={<SchedulePage />} />
+              <Route path="/booking/review" element={<ReviewPage />} />
+              <Route path="/booking/payment" element={<PaymentPage />} />
+              <Route path="/booking/confirmation" element={<ConfirmationPage />} />
               
               {/* Not found */}
               <Route path="/not-found" element={<NotFoundPage />} />
