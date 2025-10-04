@@ -28,7 +28,7 @@ export const BookingSummary = () => {
           <Sparkles className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
           <div className="flex-1 min-w-0">
             <p className="font-medium text-sm">{service.name}</p>
-            <p className="text-xs text-muted-foreground">₦{service.base_price.toLocaleString()}</p>
+            <p className="text-xs text-muted-foreground">R{service.base_price.toLocaleString()}</p>
           </div>
         </div>
 
@@ -45,7 +45,7 @@ export const BookingSummary = () => {
             {extras.map(({ extra }) => (
               <div key={extra.id} className="flex justify-between text-sm pl-6">
                 <span>{extra.name}</span>
-                <span>₦{extra.price.toLocaleString()}</span>
+                <span>R{extra.price.toLocaleString()}</span>
               </div>
             ))}
           </div>
@@ -84,20 +84,20 @@ export const BookingSummary = () => {
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span className="text-muted-foreground">Subtotal</span>
-          <span>₦{summary.subtotal.toLocaleString()}</span>
+          <span>R{summary.subtotal.toLocaleString()}</span>
         </div>
 
         {summary.discount > 0 && (
           <div className="flex justify-between text-sm text-green-600">
             <span>Discount ({frequency})</span>
-            <span>-₦{summary.discount.toLocaleString()}</span>
+            <span>-R{summary.discount.toLocaleString()}</span>
           </div>
         )}
 
         {summary.serviceFee > 0 && (
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Service Fee</span>
-            <span>₦{summary.serviceFee.toLocaleString()}</span>
+            <span>R{summary.serviceFee.toLocaleString()}</span>
           </div>
         )}
 
@@ -105,7 +105,7 @@ export const BookingSummary = () => {
 
         <div className="flex justify-between text-lg font-bold">
           <span>Total</span>
-          <span className="text-primary">₦{summary.total.toLocaleString()}</span>
+          <span className="text-primary">R{summary.total.toLocaleString()}</span>
         </div>
       </div>
     </Card>

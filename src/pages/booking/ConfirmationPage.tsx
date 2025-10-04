@@ -142,7 +142,7 @@ export default function ConfirmationPage() {
             <div className="border-t pt-4">
               <div className="flex justify-between text-lg font-bold">
                 <span>Total Paid</span>
-                <span className="text-primary">₦{booking.total_amount.toLocaleString()}</span>
+                <span className="text-primary">R{booking.total_amount.toLocaleString()}</span>
               </div>
             </div>
 

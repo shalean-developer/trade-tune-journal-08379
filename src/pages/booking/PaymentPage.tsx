@@ -252,7 +252,7 @@ export default function PaymentPage() {
                 disabled={loading || !paystackLoaded}
                 className="flex-1"
               >
-                {loading ? "Processing..." : !paystackLoaded ? "Loading payment..." : `Pay ₦${summary.total.toLocaleString()}`}
+                {loading ? "Processing..." : !paystackLoaded ? "Loading payment..." : `Pay R${summary.total.toLocaleString()}`}
               </Button>
             </div>
 

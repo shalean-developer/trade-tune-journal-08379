@@ -173,7 +173,7 @@ export default function PropertyDetailsPage() {
                           <p className="text-sm text-muted-foreground mt-1">{extra.description}</p>
                         )}
                         <p className="text-sm font-semibold text-primary mt-1">
-                          +₦{extra.price.toLocaleString()}
+                          +R{extra.price.toLocaleString()}
                         </p>
                       </div>
                     </div>

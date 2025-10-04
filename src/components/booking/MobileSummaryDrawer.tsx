@@ -15,7 +15,7 @@ export const MobileSummaryDrawer = () => {
           <Button variant="ghost" className="w-full rounded-none h-16 justify-between px-6">
             <div className="text-left">
               <p className="text-xs text-muted-foreground">Total</p>
-              <p className="text-xl font-bold text-primary">₦{summary.total.toLocaleString()}</p>
+              <p className="text-xl font-bold text-primary">R{summary.total.toLocaleString()}</p>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-sm">View Summary</span>

@@ -91,18 +91,18 @@ export default function ServiceSelectionPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Base Price:</span>
-                    <span className="font-semibold">₦{service.base_price.toLocaleString()}</span>
+                    <span className="font-semibold">R{service.base_price.toLocaleString()}</span>
                   </div>
                   {service.bedroom_price > 0 && (
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Per Bedroom:</span>
-                      <span>+₦{service.bedroom_price.toLocaleString()}</span>
+                      <span>+R{service.bedroom_price.toLocaleString()}</span>
                     </div>
                   )}
                   {service.bathroom_price > 0 && (
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Per Bathroom:</span>
-                      <span>+₦{service.bathroom_price.toLocaleString()}</span>
+                      <span>+R{service.bathroom_price.toLocaleString()}</span>
                     </div>
                   )}
                 </div>
