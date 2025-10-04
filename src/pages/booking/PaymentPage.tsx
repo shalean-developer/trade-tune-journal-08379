@@ -122,7 +122,7 @@ export default function PaymentPage() {
 
       // Initialize Paystack
       const handler = window.PaystackPop.setup({
-        key: 'pk_test_YOUR_PUBLIC_KEY_HERE', // Replace with your actual Paystack public key
+        key: 'pk_test_16df27480acd81aaf20b136ff5d9b53af08fd79e',
         email: customerEmail,
         amount: Math.round(summary.total * 100), // Convert to cents
         currency: 'ZAR',
