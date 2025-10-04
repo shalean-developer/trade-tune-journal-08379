@@ -151,7 +151,7 @@ export function BookingSummary({ bookingId, service, currentStep }: BookingSumma
               {extras.map((extra) => (
                 <div key={extra.id} className="flex justify-between text-sm">
                   <span>{extra.service_extras?.name}</span>
-                  <span>R {(extra.quantity * extra.unit_price).toFixed(2)}</span>
+                  <span>R {Number(extra.line_total).toFixed(2)}</span>
                 </div>
               ))}
             </div>

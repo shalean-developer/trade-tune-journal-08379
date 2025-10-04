@@ -94,21 +94,27 @@ export type Database = {
           created_at: string
           id: string
           line_total: number
+          qty: number
           service_extra_id: string
+          unit_price: number
         }
         Insert: {
           booking_id: string
           created_at?: string
           id?: string
           line_total: number
+          qty?: number
           service_extra_id: string
+          unit_price?: number
         }
         Update: {
           booking_id?: string
           created_at?: string
           id?: string
           line_total?: number
+          qty?: number
           service_extra_id?: string
+          unit_price?: number
         }
         Relationships: [
           {
