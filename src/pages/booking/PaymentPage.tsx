@@ -122,10 +122,10 @@ export default function PaymentPage() {
 
       // Initialize Paystack
       const handler = window.PaystackPop.setup({
-        key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || 'pk_test_xxxx', // Replace with actual key
+        key: 'pk_test_YOUR_PUBLIC_KEY_HERE', // Replace with your actual Paystack public key
         email: customerEmail,
-        amount: Math.round(summary.total * 100), // Convert to kobo
-        currency: 'NGN',
+        amount: Math.round(summary.total * 100), // Convert to cents
+        currency: 'ZAR',
         ref: reference,
         metadata: {
           booking_reference: reference,
